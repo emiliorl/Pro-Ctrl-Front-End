@@ -1,0 +1,124 @@
+.navbar{
+    background-color: #ffffff;
+    border-collapse: collapse;    
+    border-bottom: #0380A8 solid;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    color: black;
+    text-align: end;
+}
+
+.navbar-brand{
+    color: black
+}
+
+.imgUser{
+    width: 115;
+    height: 70px;
+    position: absolute;
+    top: 1.3px;
+    left: calc(50% - 50px);
+}
+
+.imgnavbar{
+    width: 40px;
+    height: 40px;
+}
+
+#imgUserNavbar{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0.4rem;
+}
+
+#textUser{
+    margin: 0.4rem;    
+    text-decoration: none;
+    color:black;
+    outline: none;
+}
+
+#navbarDropdown{  
+    text-decoration: none;
+    color:#0380A8;
+    outline: none;    
+}
+
+a {
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 1.2rem;
+    padding-top: auto;
+}
+
+.form-signin{
+    width: 100%;
+    max-width: 640px;
+    margin-right: auto;
+    text-align: left;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-family: Arial;    
+    font-weight: 900;
+}
+
+.modal-content{
+    text-align: center;
+    border-width: 3.5em;
+    border-radius: 20px;
+    border: #0380A8 18px solid !important;
+    width: 90%;
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+}
+
+.close{
+    background-color: #FF3A3A;
+    color: white;
+    text-shadow: none;
+    font-size: 1rem;
+    opacity: none;
+    border-radius: 25px;
+    text-shadow: none;
+    line-height: none;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+}
+
+h5{
+    font-family: Arial;
+    font-weight: 900;
+}
+
+.form-group{
+    margin-bottom: 0.5rem;
+    width: 240px;
+}
+
+.form-control{
+    background-color: #DADADA;
+    border-radius: 25px;
+    width: 260px;    
+}
+
+#buttonLogIn{
+    background-color: #1FB4D5 !important;
+    color: #ffffff;
+    border-radius: 1rem;    
+    font-weight: bold;
+}
+
+#buttonSignUp{
+    background-color: #FF9100 !important;
+    color: #ffffff;
+    border-radius: 1rem;
+    font-weight: bold;
+}
