@@ -59,4 +59,11 @@ export class RestUserService {
     return this.http.post(this.uri+'signUp', params, this.httpOptions)
     .pipe(map(this.extractData));
   }
+
+  //Function Login
+  login(user, token){
+    user.gettoken = token;
+    let params = JSON.stringify(user);
+    return this.http.post(this.uri+'login',params,this.httpOptions).pipe(map(this.extractData));    
+  }
 }

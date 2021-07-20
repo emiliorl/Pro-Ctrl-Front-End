@@ -6,6 +6,7 @@
     margin-right: 3rem;
     color: black;
     text-align: end;
+    height: 90px;
 }
 
 .navbar-brand{
@@ -16,20 +17,19 @@
     width: 115;
     height: 70px;
     position: absolute;
-    top: 1.3px;
+    top: 9px;
     left: calc(50% - 50px);
 }
 
 .imgnavbar{
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
 }
 
 #imgUserNavbar{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    margin: 0.4rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
 }
 
 #textUser{
@@ -42,7 +42,9 @@
 #navbarDropdown{  
     text-decoration: none;
     color:#0380A8;
-    outline: none;    
+    outline: none;
+    margin-bottom: none;
+    top: 9px;
 }
 
 a {
