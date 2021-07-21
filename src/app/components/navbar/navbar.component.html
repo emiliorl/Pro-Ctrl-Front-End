@@ -24,12 +24,12 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
               {{userLogged.rol}}
               <img *ngIf="userLogged.image" id="imgUserNavbar" src="{{uri+'getImage/'+userLogged.image}}" alt="user image">
+              <img *ngIf="userLogged.image == '' || userLogged.image == undefined" id="imgUserNavbar" src="../../../assets/img/user.png" alt="imagen de una agenda">        
               <!--<img *ngIf="user.image" id="imgUserNavbar" src="{{uri+'getImage/'+user.image}}" alt="user image">-->
           </a>
           <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-            <li><a class="dropdown-item" routerLink="">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/profileUser">Profile</a></li>
             <li><a class="dropdown-item" routerLink="/home">Home</a></li>
-            <li ><a class="dropdown-item" routerLink="">List Users</a></li>
             <li><hr class="dropdown-divider"></li>
             <!--"--> 
             <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
@@ -89,7 +89,8 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-12">
-                  <button id="buttonLogIn" class="btn col-12" type="button" data-dismiss="modal" [disabled]='!register.form.valid' (click)="onSubmit(register)" data-toggle="modal" data-target="#modalLogin">Sign Up</button></div>
+                <button id="buttonLogIn" class="btn col-12" type="button" data-dismiss="modal" [disabled]='!register.form.valid' (click)="onSubmit(register)" data-toggle="modal" data-target="#modalLogin">Sign Up</button>
+              </div>
             </div>
             <div class="row mb-3">
                 <div class="col-12"><button id="buttonSignUp" class="btn col-12" type="button" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin">Log In</button></div>
@@ -111,7 +112,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
       </div>
-      <h5 class="modal-title" id="exampleModalLongTitle">R E G I S T R A R S E</h5>
+      <h5 class="modal-title" id="exampleModalLongTitle">I N I C I A R&nbsp; S E S I O N</h5>
       <div class="modal-body">
 
       <!--Form of modal-->

@@ -1,0 +1,100 @@
+<div class="bodyPage">
+    <div class="Acount">
+        <div>
+            <h4>A C <br>
+                C O U <br>
+                N T
+            </h4>            
+        </div>
+    </div>
+    <div>
+        <div class="btn_container">
+            <img *ngIf="user.image" id="imagePerfil" src="{{uri+'getImage/'+user.image}}" alt="imagen de una agenda">
+            <img *ngIf="user.image == '' || user.image == undefined" id="imagePerfil" src="../../../assets/img/user.png" alt="imagen de perfil">
+            <button class="buttonUpload">
+                <img data-toggle="modal" data-target="#imageModal" id="imageUpload" src="../../../assets/img/lapiz2.png">
+            </button>
+        </div>        
+    </div>
+
+    <form class="formCss" #userUpdate="ngForm" (ngSubmit)="onSubmit()">
+        <h1>Hola, {{user.name}} {{user.lastname}}</h1>
+        <br>
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input [(ngModel)]="user.name" name='name' #name="ngModel" class="form-control" id="inputName" type="text" placeholder="your name" required>                  
+        </div>
+
+        <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <input [(ngModel)]="user.username" #username="ngModel" name='username' class="form-control" placeholder="username" type="text" id="inputUsername" required>
+        </div>
+  
+        <div class="form-group">
+            <label for="inputPhone">Phone</label>
+            <input [(ngModel)]="user.phone" #phone="ngModel" name="phone" class="form-control" type="number" id="inputPhone" placeholder="phone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input [(ngModel)]="user.email" #email="ngModel" name='email' class="form-control" type="email" id="inputEmail" placeholder="email" required>
+        </div>
+
+        <div class="styleButton">
+            <button type="submit" id="buttonUpdate" class="btn" [disabled]="!userUpdate.form.valid">Editar</button>
+            <button type="button" id="buttonDelete" class="btn" data-toggle="modal" data-target="#exampleModal" >Eliminar</button>
+        </div>        
+        
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3>This action is irreversible!</h3>
+        <span>Enter your password to continue</span>
+        <form #userRemoved='ngForm'>
+            <label for="passwordRemove"></label>
+            <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteUser()' [disabled]="!userRemoved.form.valid">I'm sure</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!--Modal para subir imagen de usuario-->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">User image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3>Upload your image</h3>
+        <form #formUpload='ngForm'>
+            <label for="inputImage"></label>
+            <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
+    </div>
+    </div>
+</div>
