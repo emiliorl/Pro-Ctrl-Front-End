@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ListTopicsComponent } from './components/list-topics/list-topics.component';
+import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'navbar', component: NavbarComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'listTopics', component: ListTopicsComponent},
+  {path: 'profileTopic', component: ProfileTopicComponent}
 ];
 
 @NgModule({

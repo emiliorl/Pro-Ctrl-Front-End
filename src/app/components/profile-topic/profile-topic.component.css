@@ -1,0 +1,60 @@
+h1, h2{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#topicName{
+    margin: 2%;
+    pointer-events: none;
+}
+
+.contentTopic{
+    font-family: 'Metrophobic', sans-serif;
+    vertical-align: top;
+    text-align: justify;
+    text-justify: inter-word;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none;
+    font-size: 20px;
+}
+
+.imageTopic{
+    width: 100%;
+    border-radius: 6px;
+}
+
+h1{
+    vertical-align: top;
+    text-align: left;
+    padding-left: 25%;
+    color: black;
+    font-weight: bold;
+    font-size: 85.5px;
+    letter-spacing: 1rem;
+    text-shadow: 5px 5px #FF8500;
+    pointer-events: none;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 60px;
+    color: #0380A8;
+    cursor: pointer;
+}
+
+#title{
+    width: 25%;
+    text-align: center;
+    padding-left: 2%;
+}
+
+#content{
+    width: 70%;
+    padding-right: 5%;
+}

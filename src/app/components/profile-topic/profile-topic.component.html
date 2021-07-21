@@ -1,0 +1,30 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">{{topic.nameTopic}}</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>TO<br>P<br>IC</h1>
+        </div>
+        <div id="content">
+            <div style="display: flex;">
+                <div style="padding: 1rem;">
+                    <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
+                    <img class="imageTopic" *ngIf="topic.imageTopic == '' || topic.imageTopic == undefined" id="imageTopic" src="../../../assets/img/8.png" (click)="obtenerData(topic)">
+                </div>
+                <div style="padding: 1rem;" class="contentTopic">
+                    {{topic.descriptionTopic}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
