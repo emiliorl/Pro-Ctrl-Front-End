@@ -1,0 +1,97 @@
+.bodyPage{
+    margin-left: 4.3rem;
+    margin-right: 4.3rem;
+}
+
+.Acount h4{
+    font-size: 110px;
+    font-family: Arial;
+    font-weight: bold;
+    text-shadow: 4.5px 2.4px #FF8300;
+    margin-top: 120px;
+}
+
+#imagePerfil{
+    width: 305px;
+    height: 305px;
+    position: absolute;
+    border-radius: 200px;
+    border: #A6A6A6 8px solid;
+    position: absolute;
+    z-index: -1;
+}
+
+#imageUpload{
+    width: 35px;
+    height: 35px;
+}
+
+.buttonUpload{
+    width: 55px;
+    height: 55px;
+    background-color: #A6A6A6;
+    border: none;
+    border-radius: 180px;
+    margin-top: 73.3%;
+    margin-left: 65%;
+    z-index: 1;
+}
+
+.form-group{
+    margin-bottom: 0.3rem;
+}
+
+.formCss{
+    width: 100%;
+    max-width: 380px;
+    margin-left: 57%;
+    position: absolute;
+    top: 145px;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 900;    
+}
+
+.form-control{
+    background-color: #DADADA;
+    border-radius: 25px;
+    width: 190px;    
+}
+
+.formCss h1{
+    text-decoration: none;
+    font-family: Verdana, sans-serif;
+    font-weight: none;
+    font-size: 40px;
+}
+
+#buttonDelete{
+    background-color: #FF605C !important;
+    color: #ffffff;
+    width: 130px;
+    margin-left: 1.4rem;
+}
+
+#buttonUpdate{
+    color: #ffffff;
+    background-color: #0380A8 !important;
+    width: 130px;
+    margin-left: 1.4rem;
+}
+
+#inputEmail{
+    width: 380px;
+}
+
+.styleButton{
+    padding-top: 1.5rem;
+}
+
+.btn_container{
+    border-color: black;
+    position: absolute;
+    top: 250px;
+    margin-left: 28.3%;
+    width: 305px;
+    height: 305px;
+}
