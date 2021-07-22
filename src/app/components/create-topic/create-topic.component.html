@@ -1,1 +1,42 @@
-<p>create-topic works!</p>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">CREATE</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>TO<br>P<br>IC</h1>
+        </div>
+        <div style="padding: 1rem; width: 30%; text-align: center;display: flex;">
+            <img class="imageTopic" id="imageTopic" src="../../../assets/img/8.png">
+        </div>
+        <div class="formCreateTopic">
+                <form class="formCss" #createTopic="ngForm" (ngSubmit)="onSubmit(createTopic)">
+                    <div class="inputBox">
+                        <label for="inputNameTopic">NAME</label>
+                        <input [(ngModel)]="topic.nameTopic" nameTopic='nameTopic' #nameTopic="ngModel" id="inputName" type="text" placeholder="NAME TOPIC" required>     
+                    </div>
+                    <div class="inputBox">
+                        <label for="inputNameTopic">LEVEL</label>
+                        <input [(ngModel)]="topic.nameTopic" nameTopic='nameTopic' #nameTopic="ngModel" id="inputName" type="text" placeholder="LEVEL" required>                 
+                    </div>
+                    <div class="inputBox">
+                        <label id="LabelDescriptionTopic" for="inputDescriptionTopic" style="margin-left:auto">DESCRIPTION</label>
+                        <input [(ngModel)]="topic.nameTopic" nameTopic='nameTopic' #nameTopic="ngModel" id="inputDescriptionTopic" type="text" placeholder="DESCRIPTION" required>                     
+                    </div>
+                    <div class="styleButton">
+                        <button type="cancel" id="buttonCancel" class="btn" [disabled]="!createTopic.form.valid">Cancel</button>
+                        <button type="submit" id="buttonCreate" class="btn" [disabled]="!createTopic.form.valid">Save</button>
+                    </div>   
+                </form>
+        </div>
+    </div>
+</div>
