@@ -10,8 +10,6 @@ import { AppComponent } from './app.component';
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ListTopicsComponent } from './components/list-topics/list-topics.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 
@@ -24,8 +22,6 @@ import { ProfileUserComponent } from './components/profile-user/profile-user.com
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
     ListTopicsComponent,
     CreateTopicComponent,
     SearchTopicPipe,
