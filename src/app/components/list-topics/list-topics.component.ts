@@ -47,7 +47,7 @@ export class ListTopicsComponent implements OnInit {
         alert(res.message)
       }
     },
-    error => alert(error.message));
+    error => alert(error.error.message));
   }
 
 }

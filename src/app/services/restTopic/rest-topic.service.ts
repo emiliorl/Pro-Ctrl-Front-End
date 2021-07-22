@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { CONNECTION } from '../global';
-import { map } from 'rxjs/operators';
+import { count, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +47,7 @@ export class RestTopicService {
 
   createTopic(User,Course,Topic){
     let params = JSON.stringify(Topic); 
-    return this.http.post(this.uri+'signUp', params, this.httpOptions)
+    return this.http.post(this.uri+User._id+'/'+Course+'/createTopic', params, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
@@ -64,6 +64,17 @@ export class RestTopicService {
       this.topicSelect = null;
     }
     return this.topicSelect;
+  }
+
+  updateTopic(User,Course, Topic){
+    let params = JSON.stringify(Topic);
+    return this.http.put(this.uri+'/'+User._id+'/'+Course+'/updateTopic/'+Topic._id, params, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+  deleteTopic(User, Course, Topic, possiblePassword){
+    return this.http.post(this.uri+User._id+'/'+Course+'/removeTopic/'+Topic._id, {password : possiblePassword} ,this.httpOptionAuth)
+    .pipe(map(this.extractData));
   }
 
 }
