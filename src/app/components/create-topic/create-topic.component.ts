@@ -15,31 +15,32 @@ export class CreateTopicComponent implements OnInit {
 
   public user: User;
   public course: String;
+  public topic: Topic;
   public uri: string;
   token: string;
-  topic;
   topicSelect: Topic;
 
   constructor(private restUser:RestUserService, private restTopic:RestTopicService, private route: Router) { 
-    this.uri = CONNECTION.URI;
-  }
-
-  ngOnInit(): void {
     this.topic = new Topic('','','',[],null,'','');
+    this.uri = CONNECTION.URI;
     this.user = this.restUser.getUser();
   }
 
-  onSubmit(statusForm){
-    this.restTopic.createTopic(this.user._id, '',this.topic).subscribe((res:any) => {
-      if(res.userSaved){
+  ngOnInit(): void {
+  }
+
+  onSubmit(createForm){
+    this.restTopic.createTopic(this.user, "60f5f30629d18b0b52e47c7d", this.topic).subscribe((res:any) => {
+      if(res.coursePush){
         this.topic = new Topic('','','',[],null,'','');
-        statusForm.reset();
+        alert(res.message);
+        createForm.reset();
         this.route.navigateByUrl('listTopics');
       }else{
         alert(res.message);
       }
     },
-    error => alert(error.message));
+    error => alert(error.error.message));
   }
 
 }

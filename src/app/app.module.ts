@@ -16,6 +16,7 @@ import { CreateTopicComponent } from './components/create-topic/create-topic.com
 import { SearchTopicPipe } from './pipes/searchTopic.pipe';
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
+import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileUserComponent } from './components/profile-user/profile-user.com
     CreateTopicComponent,
     SearchTopicPipe,
     ProfileTopicComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    EditTopicComponent
   ],
   imports: [
     BrowserModule,
