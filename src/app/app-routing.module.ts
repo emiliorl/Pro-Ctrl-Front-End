@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { ListTopicsComponent } from './components/list-topics/list-topics.component';
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
+import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
