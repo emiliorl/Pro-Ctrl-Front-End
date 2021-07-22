@@ -9,18 +9,13 @@ import { RestUserService } from 'src/app/services/resUser/rest-user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public userLogged: User;
+  public user: User;
 
   constructor(public restUser:RestUserService, public route:Router) {    
-    this.userLogged = new User('','','','','',null,'','','');
+    this.user = new User('','','','','',null,'','','');
   }
 
   ngOnInit(): void {
-    if(this.userLogged != null && !this.restUser.loggedIn){
-      console.log(":'D")
-    }else{
-      this.logOut();
-    }
   }
 
   logOut(){

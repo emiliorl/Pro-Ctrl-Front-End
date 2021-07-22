@@ -23,12 +23,7 @@ export class ProfileUserComponent implements OnInit {
     this.uri = CONNECTION.URI;
   }
 
-  ngOnInit(): void {    
-    if(this.user != null && !this.restUser.loggedIn){
-      console.log(":'D")
-    }else{
-      this.logOut();
-    }
+  ngOnInit(): void {
   }
 
   onSubmit(){
