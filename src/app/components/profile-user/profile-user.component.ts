@@ -24,6 +24,10 @@ export class ProfileUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.restUser.loggedIn() == true){
+      localStorage.clear();
+      this.router.navigateByUrl('home');
+    } 
   }
 
   onSubmit(){

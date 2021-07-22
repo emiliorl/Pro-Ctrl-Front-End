@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { CONNECTION } from '../global';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class RestUserService {
     return body || [] || {};
   }
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private route: Router) {
     this.uri = CONNECTION.URI;
   }
 
@@ -116,6 +117,19 @@ export class RestUserService {
   loggedIn(){
     const token = this.getToken()
     return this.helper.isTokenExpired(token)
+  }
+
+  logOutTokenCheck(){
+    let checkToken: boolean;
+
+    const token = this.getToken()
+    checkToken == this.helper.isTokenExpired(token)
+
+    if(checkToken == true){
+      localStorage.clear();
+      console.log('funcion de navigateUrl')      
+      return this.route.navigateByUrl('home');
+    }
   }
   
 }
