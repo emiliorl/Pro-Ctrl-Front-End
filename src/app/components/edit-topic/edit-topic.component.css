@@ -1,0 +1,120 @@
+h1, h2{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#topicName{
+    margin: 2%;
+    pointer-events: none;
+}
+
+.contentTopic{
+    font-family: 'Metrophobic', sans-serif;
+    vertical-align: top;
+    text-align: justify;
+    text-justify: inter-word;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none;
+    font-size: 20px;
+}
+
+.imageTopic{
+    width: 60%;
+    border-radius: 6px;
+    margin: auto;
+    display: block;
+    border: #A6A6A6 solid 8px;
+}
+
+h1{
+    vertical-align: top;
+    text-align: left;
+    padding-left: 25%;
+    color: black;
+    font-weight: bold;
+    font-size: 85.5px;
+    letter-spacing: 1rem;
+    text-shadow: 5px 5px #FF8500;
+    pointer-events: none;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 48px;
+    letter-spacing: 6px;
+    color: #0380A8;
+    cursor: pointer;
+}
+
+#title{
+    width: 25%;
+    text-align: center;
+    padding-left: 2%;
+}
+
+#content{
+    width: 70%;
+    padding-right: 5%;
+}
+
+.formCreateTopic{
+    margin: auto;
+    padding-right: 10%;
+    width: 45%;
+    text-align: right;
+}
+
+.formCreateTopic label{
+    text-align: right;
+    font-weight: bold;
+    margin-right: 2%;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.formCreateTopic input{
+    width: 60%;
+    border-radius: 6px;
+    border: none;
+    background-color: #FFE2B2;
+    padding: 2%;
+    cursor: pointer;
+    color: black;
+}
+
+.inputBox{
+    padding: 0.8rem;
+}
+
+#buttonCancel, #buttonUpdate, #buttonDelete{
+    width: 28%;
+    margin: 2%;
+    padding: 0;
+    border-radius: 0%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#buttonCancel{
+    border-color: #646363;
+    border-width: 0.2rem;
+    color: #646363;
+}
+
+#buttonUpdate{
+    background-color: #FFBD44;
+    border-width: 0.2rem;
+    color: white;
+}
+
+#buttonDelete{
+    background-color: #FF605C;
+    border-width: 0.2rem;
+    color: white;
+}

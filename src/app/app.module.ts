@@ -10,27 +10,25 @@ import { AppComponent } from './app.component';
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ListTopicsComponent } from './components/list-topics/list-topics.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 
 import { SearchTopicPipe } from './pipes/searchTopic.pipe';
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
+import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
     ListTopicsComponent,
     CreateTopicComponent,
     SearchTopicPipe,
     ProfileTopicComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    EditTopicComponent
   ],
   imports: [
     BrowserModule,
