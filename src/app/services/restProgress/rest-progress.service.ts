@@ -53,8 +53,8 @@ export class RestProgressService {
     .pipe(map(this.extractData));
   }
 
-  getProgress(Progress){
-    return this.http.get(this.uri+Progress+'/listProgress', this.httpOptions)
+  getProgress(Topic){
+    return this.http.get(this.uri+Topic+'/listProgress', this.httpOptions)
     .pipe(map(this.extractData));
   }
 
@@ -74,8 +74,8 @@ export class RestProgressService {
     .pipe(map(this.extractData));
   }
 
-  deleteProgress(User, Progress, possiblePassword){
-    return this.http.post(this.uri+User._id+'/removeTopic/'+Progress._id, {password : possiblePassword} ,this.httpOptionAuth)
+  deleteProgress(User, Progress){
+    return this.http.post(this.uri+User._id+'/removeTopic/'+Progress._id,this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
