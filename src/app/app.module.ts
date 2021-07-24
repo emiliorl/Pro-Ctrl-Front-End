@@ -17,6 +17,8 @@ import { SearchTopicPipe } from './pipes/searchTopic.pipe';
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
+import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { EditTopicComponent } from './components/edit-topic/edit-topic.component
     SearchTopicPipe,
     ProfileTopicComponent,
     ProfileUserComponent,
-    EditTopicComponent
+    EditTopicComponent,
+    CreateCourseComponent,
+    ListCoursesComponent
   ],
   imports: [
     BrowserModule,
