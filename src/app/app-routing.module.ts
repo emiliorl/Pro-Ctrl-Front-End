@@ -8,6 +8,7 @@ import { CreateTopicComponent } from './components/create-topic/create-topic.com
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
+import { CreateCourseComponent } from './components/create-course/create-course.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: '', redirectTo: 'Home', pathMatch:'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'profileTopic', component: ProfileTopicComponent},
   {path: 'profileUser', component: ProfileUserComponent},
   {path: 'createTopic', component: CreateTopicComponent},
-  {path: 'editTopic', component: EditTopicComponent}
+  {path: 'editTopic', component: EditTopicComponent},
+  {path: 'createCourse', component: CreateCourseComponent}
 ];
 
 @NgModule({

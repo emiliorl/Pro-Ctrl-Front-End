@@ -10,7 +10,8 @@ export class RestCourseService {
 
   public uri : string;
   public token;
-
+  public course; 
+  public courseSelect;
 
   public httpOptions = {
     headers:new HttpHeaders({
@@ -44,17 +45,21 @@ export class RestCourseService {
   }
 
   createCourse(userId, parametros){
-    var params = JSON.stringify(parametros);
-    return this.http.post(this.uri + '/createCourse/'+ userId, params, this.httpOptions)
+    let params = JSON.stringify(parametros);
+    return this.http.post(this.uri + '/createCourse/'+ userId, params, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
-  updateCourse(){
-    
+  updateCourse(userId, courseId, parametros){
+    let params = JSON.stringify(parametros);
+    return this.http.put(this.uri + '/' + userId + '/updateCourse/'+ courseId, params, this.httpOptionAuth)
+    .pipe(map(this.extractData));
   }
 
-  deleteCourse(){
-
+  deleteCourse(userId, courseId, possiblePassword){
+    return this.http.post(this.uri + '/ ' + userId + '/deleteCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
+    .pipe(map(this.extractData));
   }
+
 
 }
