@@ -1,0 +1,88 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">UPDATE</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>CO<br>UR<br>SE</h1>
+        </div>
+        <div style="padding: 1rem; width: 30%; text-align: center;display: flex;">
+            <img class="imageTopic" id="imageTopic" src="../../../assets/img/8.png">
+        </div>
+        <div class="formCreateTopic">
+                <form class="formCss" #createCourse="ngForm" (ngSubmit)="onSubmit(createCourse)">
+                    <div class="inputBox">
+                        <label for="inputName">NAME</label>
+                        <input [(ngModel)]="course.name" name='nameCourse' #nameCourse="ngModel" id="inputName" type="text" placeholder="NAME TOPIC" required>     
+                    </div>
+                    <div class="inputBox">
+                        <label for="inputIdCourse">ID COURSE</label>
+                        <input [(ngModel)]="course.idCourse" name='idCourse' #idCourse="ngModel" id="inputIdCourse" type="text" placeholder="ID COURSE" required>     
+                    </div>
+                    <div class="inputBox">
+                        <label for="inputLevel">LEVEL</label>
+                        <input [(ngModel)]="course.level" name='level' #level="ngModel" id="inputLevel" type="number" placeholder="LEVEL" required>                 
+                    </div>
+                    <div class="form-group inputBox">
+                        <label for="selectType">SELECT TYPE COURSE</label>
+                        <select [(ngModel)]="course.type" #type="ngModel" name="type" id="selectType" class="form-control" required>
+                            <option *ngFor="let type of typesCourses" [value]="type">{{type}}</option>
+                        </select>
+                        
+                    </div>
+                    <div class="inputBox" *ngIf="type.value == 'PRIVATE' ">
+                        <label for="inputPassword">PASSWORD</label>
+                        <input [(ngModel)]="course.password" name='password' #password="ngModel" id="inputPassword" type="password" placeholder="PASSWORD" required >
+                    </div>
+                    <div class="inputBox">
+                        <label for="inputRequirements">REQUIREMENTS</label>
+                        <input [(ngModel)]="course.requirements" name='idCourse' #req="ngModel" id="inputRequirements" type="text" placeholder="REQUIREMENTS" required>     
+                    </div>
+                    <div class="inputBox">
+                        <label id="LabelDescriptionTopic" for="inputDescriptionTopic" style="margin-left:auto">DESCRIPTION</label>
+                        <input [(ngModel)]="course.description" name='description' #description="ngModel" id="inputDescriptionTopic" type="text" placeholder="DESCRIPTION" required>                     
+                    </div>
+                    
+                    <div class="styleButton">
+                        <a type="cancel" id="buttonCancel" class="btn" onclick="">Cancel</a>
+                        <button type="submit" id="buttonUpdate" class="btn" [disabled]="!createCourse.form.valid">Update</button>
+                        <button type="submit" id="buttonDelete" class="btn" data-toggle="modal" data-target="#deleteTeamModal">Delete</button>
+                    </div>   
+                </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteTeamModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3>This action is irreversible!</h3>
+        <span>Enter your password to continue</span>
+        <form #courseRemoved='ngForm'>
+            <label for="passwordRemove"></label>
+            <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteCourse()' [disabled]="!courseRemoved.form.valid">I'm sure</button>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,1 +1,41 @@
-<p>list-courses works!</p>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="courseName">ALL COURSES</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>CO<br>URS<br>ES</h1>
+            <form class="example" action="">
+                <input [(ngModel)]="searchCourse" class="searchTopics" type="search" name="searchCourse" placeholder="Search course">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div id="tableDiv" *ngIf="listCourses?.length > 0;else noCourses">
+            <table style="margin: auto;" *ngFor="let course of listCourses | searchCourse:searchCourse">
+                <tr>
+                    <td rowspan="2" class="imageTopics">
+                        <img class="imageTopic" *ngIf="course.imageCourse" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(course)">
+                        <img class="imageTopic" *ngIf="course.imageCourse == '' || course.imageCourse == undefined" id="imageCourse" src="../../../assets/img/8.png" (click)="obtenerData(course)">
+                    </td>
+                    <td class="titleTopic" (click)="obtenerData(course)">{{course.name}} ({{course.level}} LVL.)</td>
+                </tr>     
+                <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">
+                    <td class="contentTopic" *ngIf='course.description' (click)="obtenerData(course)">{{course.description}}</td>
+                </tr>    
+                
+            </table>
+        </div>
+        <ng-template #noCourses>
+            <h1 style="text-shadow: 5px 5px #0380A8;">No courses to show...</h1>
+        </ng-template>
+    </div>
+</div>

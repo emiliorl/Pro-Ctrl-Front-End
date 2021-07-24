@@ -61,5 +61,44 @@ export class RestCourseService {
     .pipe(map(this.extractData));
   }
 
+  getCoursesPublic(){
+    return this.http.get(this.uri + '/getlistCoursesPublic', {})
+    .pipe(map(this.extractData));
+  }
 
+  getCourseStorage(){
+    let course = JSON.parse(localStorage.getItem('courseSeclect'));
+    if(course != undefined || course != null){
+      this.course = course; 
+    }else{
+      this.course = null; 
+    }
+    return this.course; 
+  }
+
+  uploadImage(userId, courseId, params: Array<string>, files: Array<File>, token:string, name:string){
+    return new Promise((resolve, reject) => {
+      var formData: any = new FormData();
+      var xhr = new XMLHttpRequest();
+      let uri = this.uri+userId+'/uploadImage/'+courseId;
+
+      for(var i=0; i<files.length; i++){
+        formData.append(name, files[i], files[i].name)
+      }
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState == 4){
+          if(xhr.status == 200){
+            resolve(JSON.parse(xhr.response));
+          }else{
+            reject(xhr.response);
+          }
+        }
+      }
+      xhr.open('PUT', uri, true);
+      xhr.setRequestHeader('Authorization', token);
+      xhr.send(formData);
+    });
+  }
+
+  get
 }
