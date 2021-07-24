@@ -18,6 +18,7 @@ import { ProfileTopicComponent } from './components/profile-topic/profile-topic.
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateCourseComponent } from './components/create-course/create-course.
     ProfileTopicComponent,
     ProfileUserComponent,
     EditTopicComponent,
-    CreateCourseComponent
+    CreateCourseComponent,
+    ListCoursesComponent
   ],
   imports: [
     BrowserModule,

@@ -37,12 +37,12 @@
                         <select [(ngModel)]="course.type" #type="ngModel" name="type" id="selectType" class="form-control" required>
                             <option *ngFor="let type of typesCourses" [value]="type">{{type}}</option>
                         </select>
-                        <div class="inputBox" *ngIf="type.value == 'PRIVATE' ">
-                            <label for="inputPassword">PASSWORD</label>
-                            <input [(ngModel)]="course.password" name='password' #password="ngModel" id="inputPassword" type="password" placeholder="PASSWORD" required >
-                        </div>
+                        
                     </div>
-                    
+                    <div class="inputBox" *ngIf="type.value == 'PRIVATE' ">
+                        <label for="inputPassword">PASSWORD</label>
+                        <input [(ngModel)]="course.password" name='password' #password="ngModel" id="inputPassword" type="password" placeholder="PASSWORD" required >
+                    </div>
                     <div class="inputBox">
                         <label for="inputRequirements">REQUIREMENTS</label>
                         <input [(ngModel)]="course.requirements" name='idCourse' #req="ngModel" id="inputRequirements" type="text" placeholder="REQUIREMENTS" required>     

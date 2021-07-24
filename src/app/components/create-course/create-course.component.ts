@@ -14,7 +14,6 @@ export class CreateCourseComponent implements OnInit {
   public user; 
   public course; 
   public typesCourses = ['PUBLIC', 'PRIVATE'];
-  public typeSelect : false; 
 
   constructor(private resUser : RestUserService, private route : Router, private restCourse : RestCourseService) { 
     this.course = new Course('','','', null ,'','','','',[],[],[]);
