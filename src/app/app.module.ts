@@ -42,7 +42,7 @@ import { CreateProgressComponent } from './components/create-progress/create-pro
     ListCoursesComponent,
     ListProgressComponent,
     ProfileProgressComponent,
-    CreateProgressComponent
+    CreateProgressComponent,
     ReportUserComponent,
     ReportAdminComponent
   ],
