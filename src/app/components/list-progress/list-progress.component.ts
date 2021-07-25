@@ -7,9 +7,9 @@ import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 import { RestProgressService } from 'src/app/services/restProgress/rest-progress.service';
 
 @Component({
-  selector: 'app-list-topics',
-  templateUrl: './list-topics.component.html',
-  styleUrls: ['./list-topics.component.css']
+  selector: 'app-list-progress',
+  templateUrl: './list-progress.component.html',
+  styleUrls: ['./list-progress.component.css']
 })
 export class ListProgressComponent implements OnInit {
 

@@ -17,7 +17,8 @@
         </div>
         <div style="padding: 1rem; width: 30%; text-align: center;display: flex;">
         </div>
-        <div class="formCreateProgress">
+        <form class="form-signin" #progressUpdate="ngForm" (ngSubmit)="onSubmit()">
+        <div class="progressUpdate">
                     <div class="inputBox">
                         <label for="inputUser">USER</label>
                         <input [(ngModel)]="progress.user" name='user' #user="ngModel" id="inputUser" type="text" placeholder="USER" required>     
@@ -31,8 +32,6 @@
                         <button type="button" class="btn col-lg-3 mx-2" id="buttonDelete" data-toggle="modal" data-target="#exampleModal">Delete</button>   
                         <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Cancel</a>
                     </div>   
-
-
 
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,14 +54,9 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deletePlayer()' [disabled]="!userRemoved.form.valid">I'm sure</button>
+                                <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteProgress()' [disabled]="!userRemoved.form.valid">I'm sure</button>
                             </div>
                         </div>
                         </div>
                     </div>
-
-
-
-                </form>
     </div>
-</div>

@@ -9,9 +9,9 @@ import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 import { RestProgressService } from 'src/app/services/restProgress/rest-progress.service';
 
 @Component({
-  selector: 'app-profile-topic',
-  templateUrl: './profile-topic.component.html',
-  styleUrls: ['./profile-topic.component.css']
+  selector: 'app-profile-progress',
+  templateUrl: './profile-progress.component.html',
+  styleUrls: ['./profile-progress.component.css']
 })
 export class ProfileProgressComponent implements OnInit {
 
@@ -20,11 +20,13 @@ export class ProfileProgressComponent implements OnInit {
     public topic: Topic;
     public course: Course;
     public uri: string;
+    public possiblePass;
     token: string;
     progressSelect: Progress;
 
   constructor(private restUser:RestUserService, private restProgress:RestProgressService, private route: Router) { 
     this.uri = CONNECTION.URI;
+    this.possiblePass = '';
   }
 
   ngOnInit(): void {

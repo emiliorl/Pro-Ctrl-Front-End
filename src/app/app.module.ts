@@ -20,6 +20,10 @@ import { EditTopicComponent } from './components/edit-topic/edit-topic.component
 import { CreateCourseComponent } from './components/create-course/create-course.component';
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 
+import { ListProgressComponent } from './components/list-progress/list-progress.component';
+import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
+import { CreateProgressComponent } from './components/create-progress/create-progress.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +36,10 @@ import { ListCoursesComponent } from './components/list-courses/list-courses.com
     ProfileUserComponent,
     EditTopicComponent,
     CreateCourseComponent,
-    ListCoursesComponent
+    ListCoursesComponent,
+    ListProgressComponent,
+    ProfileProgressComponent,
+    CreateProgressComponent
   ],
   imports: [
     BrowserModule,

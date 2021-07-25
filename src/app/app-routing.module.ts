@@ -9,6 +9,10 @@ import { ProfileUserComponent } from './components/profile-user/profile-user.com
 
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { ListProgressComponent } from './components/list-progress/list-progress.component';
+import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
+import { CreateProgressComponent } from './components/create-progress/create-progress.component';
+
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: '', redirectTo: 'Home', pathMatch:'full'},
@@ -19,7 +23,11 @@ const routes: Routes = [
   {path: 'profileUser', component: ProfileUserComponent},
   {path: 'createTopic', component: CreateTopicComponent},
   {path: 'editTopic', component: EditTopicComponent},
-  {path: 'createCourse', component: CreateCourseComponent}
+  {path: 'createCourse', component: CreateCourseComponent},
+  {path: 'createProgress', component: ProfileProgressComponent},
+  {path: 'listProgress', component: ListProgressComponent},
+  {path: 'profileProgress', component: CreateProgressComponent},
+  
 ];
 
 @NgModule({
