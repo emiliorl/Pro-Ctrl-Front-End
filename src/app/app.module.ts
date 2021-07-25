@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GoogleChartsModule } from 'angular-google-charts';  
 
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -19,6 +20,8 @@ import { ProfileUserComponent } from './components/profile-user/profile-user.com
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
+import { ReportUserComponent } from './components/report-user/report-user.component';
+import { ReportAdminComponent } from './components/report-admin/report-admin.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +35,16 @@ import { ListCoursesComponent } from './components/list-courses/list-courses.com
     ProfileUserComponent,
     EditTopicComponent,
     CreateCourseComponent,
-    ListCoursesComponent
+    ListCoursesComponent,
+    ReportUserComponent,
+    ReportAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

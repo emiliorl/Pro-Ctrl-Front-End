@@ -1,0 +1,49 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">CREATE</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>RE<br>PO<br>RT</h1>
+        </div>
+        <div style="padding: 1rem; width: 20%; text-align: center; top: 0;">
+            <google-chart class="chartTopics"
+                type="PieChart"
+                [data]="data"
+                height="auto"
+                [options]="options">
+            </google-chart>
+        </div>
+        <div class="formCreateTopic">
+            <div>
+                <table id="tableCourses" style="margin: auto;">
+                    <tr>
+                        <th class="rigthColor">NAME</th>
+                        <th class="rigthColor">GRADE</th>
+                        <th class="rigthColor">STATUS</th>
+                        <th>OPTIONS</th>
+                    </tr>
+                    <tr *ngFor="let topic of topics | searchTopic:searchTopic">
+                        <td style="text-transform: uppercase;" class="rigthColor" (click)="obtenerData(topic)">{{topic.nameTopic}}</td>
+                        <td class="rigthColor" (click)="obtenerData(topic)">{{topic.level}} LVL.</td>
+                        <td class="rigthColor" (click)="obtenerData(topic)">IN PROGRESS</td>
+                        <td (click)="obtenerData(topic)"><button class="editButton">EDIT</button></td>
+                    </tr>   
+                </table>
+            </div>
+            <div>
+                <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Back</a>
+                <button type="submit" id="buttonInformation" class="btn">Information</button>
+            </div>
+        </div>
+    </div>
+</div>

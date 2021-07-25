@@ -6,6 +6,7 @@ import { ListTopicsComponent } from './components/list-topics/list-topics.compon
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
+import { ReportUserComponent } from './components/report-user/report-user.component';
 
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'profileUser', component: ProfileUserComponent},
   {path: 'createTopic', component: CreateTopicComponent},
   {path: 'editTopic', component: EditTopicComponent},
-  {path: 'createCourse', component: CreateCourseComponent}
+  {path: 'createCourse', component: CreateCourseComponent},
+  {path: 'reportUser', component: ReportUserComponent}
 ];
 
 @NgModule({

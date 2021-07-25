@@ -1,0 +1,130 @@
+h1, h2{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#topicName{
+    margin: 2%;
+    pointer-events: none;
+}
+
+.contentTopic{
+    font-family: 'Metrophobic', sans-serif;
+    vertical-align: top;
+    text-align: justify;
+    text-justify: inter-word;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none;
+    font-size: 20px;
+}
+
+.chartTopics{
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+h1{
+    vertical-align: top;
+    text-align: left;
+    padding-left: 25%;
+    color: black;
+    font-weight: bold;
+    font-size: 85.5px;
+    letter-spacing: 1rem;
+    text-shadow: 5px 5px #0096C7;
+    pointer-events: none;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 48px;
+    letter-spacing: 6px;
+    color: #0380A8;
+    cursor: pointer;
+}
+
+#title{
+    width: 25%;
+    text-align: center;
+    padding-left: 2%;
+}
+
+#content{
+    width: 70%;
+    padding-right: 5%;
+}
+
+.formCreateTopic{
+    margin: auto;
+    padding-right: 10%;
+    width: 55%;
+    text-align: center;
+}
+
+#tableCourses td, th{
+    width: 10%;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.08rem;
+}
+
+#tableCourses td{
+    border-bottom: 0.1rem dashed #ADE8F4;
+}
+
+.rigthColor{
+    border-right: 0.1rem dashed #ADE8F4;
+}
+
+#tableCourses th{
+    border-bottom: 0.1rem solid #0380A8;
+    font-size: 22px;
+}
+
+.inputBox{
+    padding: 0.8rem;
+}
+
+#buttonCancel, #buttonInformation{
+    width: 30%;
+    margin: 4%;
+    padding: 0;
+    border-radius: 0%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.editButton{
+    width: 60%;
+    margin: 4%;
+    padding: 0;
+    border-radius: 0%;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#buttonCancel{
+    border-color: #646363;
+    border-width: 0.2rem;
+    color: #646363;
+}
+
+#buttonInformation{
+    background-color: #0096C7;
+    border-width: 0.2rem;
+    color: white;
+}
+
+.editButton{
+    background-color: #FFBD44;
+    letter-spacing: 0.25rem;
+    border-width: 0.2rem;
+    color: white;
+}
