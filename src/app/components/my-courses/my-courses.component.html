@@ -1,0 +1,53 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="courseName">MY COURSES</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>CO<br>URS<br>ES</h1>
+            <br>
+            <button type="button" id="buttonCreate" class="btn" routerLink="/createCourse">NEW COURSE</button>
+        </div>
+        <div id="tableDiv" *ngIf="listCourses?.length > 0;else noCourses">
+            
+
+            <div style="overflow-x:auto; margin-bottom: 2em;">
+                <br>
+                <table>
+                    <thead>            
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>     
+                            <th>PROGRESS</th>
+                            <th>OPTIONS</th>  
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let course of listCourses let i = index">
+                        <td>{{course.idCourse}}</td>
+                        <td>{{course.name}}</td>
+                        <td>PROGRESS</td>                        
+                        <!--
+                            <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
+                        -->
+                        <td><button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button></td>
+                    </tr>            
+                </table>
+            </div>
+
+
+        </div>
+        <ng-template #noCourses>
+            <h1 style="text-shadow: 5px 5px #0380A8;">No courses to show...</h1>
+        </ng-template>
+    </div>
+</div>
+

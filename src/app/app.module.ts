@@ -21,6 +21,7 @@ import { CreateCourseComponent } from './components/create-course/create-course.
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 import { SearchCoursePipe } from './pipes/search-course.pipe';
 import { ProfileCourseComponent } from './components/profile-course/profile-course.component';
+import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProfileCourseComponent } from './components/profile-course/profile-cour
     CreateCourseComponent,
     ListCoursesComponent,
     SearchCoursePipe,
-    ProfileCourseComponent
+    ProfileCourseComponent,
+    MyCoursesComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { CONNECTION } from '../global';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,7 +58,7 @@ export class RestCourseService {
   }
 
   deleteCourse(userId, courseId, possiblePassword){
-    return this.http.post(this.uri + '/ ' + userId + '/deleteCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
+    return this.http.post(this.uri +  userId + '/deleteCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
@@ -65,6 +66,13 @@ export class RestCourseService {
     return this.http.get(this.uri + '/getlistCoursesPublic', {})
     .pipe(map(this.extractData));
   }
+
+  listCoursesAdmin(userId){
+    return this.http.get(this.uri + '/listCoursesAdmin/' + userId,  this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+  
 
   getCourseStorage(){
     let course = JSON.parse(localStorage.getItem('courseSeclect'));
@@ -100,5 +108,8 @@ export class RestCourseService {
     });
   }
 
-  get
+  incriptionCourse(userId, courseId, possiblePassword){
+    return this.http.post(this.uri + userId +'/inscriptionCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
 }

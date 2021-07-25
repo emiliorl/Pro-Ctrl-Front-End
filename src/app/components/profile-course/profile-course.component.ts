@@ -29,12 +29,27 @@ export class ProfileCourseComponent implements OnInit {
   }
 
   onSubmit(coursoUpdated){
-
+    this.restCourse.updateCourse(this.user._id, this.course._id, this.course).subscribe((res:any)=>{
+      if(res.courseUpdated){
+        alert(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    error => alert(error.error.message));
   }
 
 
   deleteCourse(){
-
+    this.restCourse.deleteCourse(this.user._id, this.course._id, this.possiblePass).subscribe((res:any)=>{
+      if(res.courseDelete){
+        alert(res.message);
+        this.route.navigateByUrl('listCourses');
+      }else{
+        alert(res.message);
+      }
+    },
+    (error:any) => alert(error.error.message));
   }
 
   fileChange(fileInput){

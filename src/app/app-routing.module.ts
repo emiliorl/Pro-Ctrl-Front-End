@@ -11,6 +11,7 @@ import { EditTopicComponent } from './components/edit-topic/edit-topic.component
 import { CreateCourseComponent } from './components/create-course/create-course.component';
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 import { ProfileCourseComponent } from './components/profile-course/profile-course.component';
+import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: '', redirectTo: 'Home', pathMatch:'full'},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'editTopic', component: EditTopicComponent},
   {path: 'createCourse', component: CreateCourseComponent},
   {path: 'listCourses', component: ListCoursesComponent},
-  {path: 'profileCourse', component : ProfileCourseComponent}
+  {path: 'profileCourse', component : ProfileCourseComponent},
+  {path: 'myCourses', component : MyCoursesComponent}
 ];
 
 @NgModule({
