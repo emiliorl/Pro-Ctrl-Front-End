@@ -72,8 +72,6 @@ export class RestCourseService {
     .pipe(map(this.extractData));
   }
 
-  
-
   getCourseStorage(){
     let course = JSON.parse(localStorage.getItem('courseSeclect'));
     if(course != undefined || course != null){

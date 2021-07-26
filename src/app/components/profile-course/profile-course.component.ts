@@ -59,4 +59,18 @@ export class ProfileCourseComponent implements OnInit {
   uploadImage(){
     
   }
+
+  suscribeCourse(){
+    if(this.course.type == 'PUBLIC'){
+      this.possiblePass == '';
+    }
+    this.restCourse.incriptionCourse(this.user._id, this.course._id, this.possiblePass).subscribe((res:any)=>{
+      if(res.courseProgressPush){
+        alert(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    (error:any) => alert(error.error.message));
+  }
 }

@@ -92,7 +92,7 @@ h2{
     padding: 0.8rem;
 }
 
-#buttonCancel, #buttonUpdate, #buttonDelete{
+#buttonCancel, #buttonUpdate, #buttonDelete, #buttonSuscribe{
     width: 40%;
     margin: 4%;
     padding: 0;
@@ -115,6 +115,12 @@ h2{
 
 #buttonDelete{
     background-color: #FF605C;
+    border-width: 0.2rem;
+    color: white;
+}
+
+#buttonSuscribe{
+    background-color: #0380A8;
     border-width: 0.2rem;
     color: white;
 }
