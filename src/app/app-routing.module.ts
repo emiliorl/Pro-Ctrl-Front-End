@@ -10,9 +10,13 @@ import { ReportUserComponent } from './components/report-user/report-user.compon
 
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { ListCoursesComponent } from './components/list-courses/list-courses.component';
+
 import { ListProgressComponent } from './components/list-progress/list-progress.component';
 import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
 import { CreateProgressComponent } from './components/create-progress/create-progress.component';
+import { ProfileCourseComponent } from './components/profile-course/profile-course.component';
+import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 import { OverviewCourseComponent } from './components/overview-course/overview-course.component';
 
 const routes: Routes = [
@@ -26,6 +30,9 @@ const routes: Routes = [
   {path: 'createTopic', component: CreateTopicComponent},
   {path: 'editTopic', component: EditTopicComponent},
   {path: 'createCourse', component: CreateCourseComponent},
+  {path: 'listCourses', component: ListCoursesComponent},
+  {path: 'profileCourse', component : ProfileCourseComponent},
+  {path: 'myCourses', component : MyCoursesComponent},
   {path: 'createProgress', component: ProfileProgressComponent},
   {path: 'listProgress', component: ListProgressComponent},
   {path: 'profileProgress', component: CreateProgressComponent},

@@ -98,4 +98,49 @@ form.example button {
     border: none;
     cursor: pointer;
     padding: 2%;
-  }
+}
+
+
+
+th{    
+    text-align: center;
+    width: auto;
+    border-bottom: 1px solid #0380A8 !important;
+    border-collapse:collapse;
+}
+
+td,th {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;   
+    border-collapse: collapse;
+    border-right: 2px dashed #ADE8F4;
+}
+
+td{
+    text-align: center;
+    border-bottom: 1px dotted #ADE8F4;
+}
+
+#buttonEdit{
+    background-color: #FFBD44 !important;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+}
+
+#buttonCreate{
+    background-color: #A1C22F;
+    border-width: 0.2rem;
+    color: white;
+}
+
+#buttonCreate{
+    width: 40%;
+    margin: 4%;
+    padding: 0;
+    border-radius: 0%;
+    font-weight: bold;
+    font-size: 20px;
+}

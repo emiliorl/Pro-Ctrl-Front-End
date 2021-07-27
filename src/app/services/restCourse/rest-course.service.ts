@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { CONNECTION } from '../global';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,9 +58,61 @@ export class RestCourseService {
   }
 
   deleteCourse(userId, courseId, possiblePassword){
-    return this.http.post(this.uri + '/ ' + userId + '/deleteCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
+    return this.http.post(this.uri +  userId + '/deleteCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
+  getCoursesPublic(){
+    return this.http.get(this.uri + '/getlistCoursesPublic', {})
+    .pipe(map(this.extractData));
+  }
 
+  listAllCourses(){
+    return this.http.get(this.uri + '/getAllCourses', {})
+    .pipe(map(this.extractData));
+  }
+
+  listMyCourses(userId){
+    return this.http.get(this.uri + '/listMyCourses/' + userId,  this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+  getCourseStorage(){
+    let course = JSON.parse(localStorage.getItem('courseSeclect'));
+    if(course != undefined || course != null){
+      this.course = course; 
+    }else{
+      this.course = null; 
+    }
+    return this.course; 
+  }
+
+  uploadImage(userId, courseId, params: Array<string>, files: Array<File>, token:string, name:string){
+    return new Promise((resolve, reject) => {
+      var formData: any = new FormData();
+      var xhr = new XMLHttpRequest();
+      let uri = this.uri+userId+'/uploadImage/'+courseId;
+
+      for(var i=0; i<files.length; i++){
+        formData.append(name, files[i], files[i].name)
+      }
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState == 4){
+          if(xhr.status == 200){
+            resolve(JSON.parse(xhr.response));
+          }else{
+            reject(xhr.response);
+          }
+        }
+      }
+      xhr.open('PUT', uri, true);
+      xhr.setRequestHeader('Authorization', token);
+      xhr.send(formData);
+    });
+  }
+
+  incriptionCourse(userId, courseId, possiblePassword){
+    return this.http.post(this.uri + userId +'/inscriptionCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
 }

@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/models/course';
@@ -17,7 +18,7 @@ export class CreateCourseComponent implements OnInit {
 
   constructor(private resUser : RestUserService, private route : Router, private restCourse : RestCourseService) { 
     this.course = new Course('','','', null ,'','','','',[],[],[]);
-    this.user = this.resUser.getUser()._id;
+    this.user = this.resUser.getUser();
   }
 
   ngOnInit(): void {
@@ -25,11 +26,15 @@ export class CreateCourseComponent implements OnInit {
   }
 
   onSubmit(courseSave){
-    this.restCourse.createCourse(this.user, this.course).subscribe((res:any)=>{
+    if(this.course.type == 'PUBLIC'){
+      this.course.password = '';
+    }
+    this.restCourse.createCourse(this.user._id, this.course).subscribe((res:any)=>{
       if(res.coursePush){
         this.course = new Course('','','', null ,'','','', '',[],[],[]);
         courseSave.reset();
         alert(res.message);
+        this.route.navigateByUrl('myCourses');
       }else{
         alert(res.message);
       }

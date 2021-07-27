@@ -20,6 +20,9 @@ import { ProfileUserComponent } from './components/profile-user/profile-user.com
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
+import { SearchCoursePipe } from './pipes/search-course.pipe';
+import { ProfileCourseComponent } from './components/profile-course/profile-course.component';
+import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 import { ReportUserComponent } from './components/report-user/report-user.component';
 import { ReportAdminComponent } from './components/report-admin/report-admin.component';
 
@@ -27,6 +30,7 @@ import { ListProgressComponent } from './components/list-progress/list-progress.
 import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
 import { CreateProgressComponent } from './components/create-progress/create-progress.component';
 import { OverviewCourseComponent } from './components/overview-course/overview-course.component';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +45,9 @@ import { OverviewCourseComponent } from './components/overview-course/overview-c
     EditTopicComponent,
     CreateCourseComponent,
     ListCoursesComponent,
+    SearchCoursePipe,
+    ProfileCourseComponent,
+    MyCoursesComponent,
     ListProgressComponent,
     ProfileProgressComponent,
     CreateProgressComponent,

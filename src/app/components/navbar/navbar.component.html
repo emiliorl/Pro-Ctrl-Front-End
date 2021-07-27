@@ -14,11 +14,18 @@
           <a class="nav-link"></a>
         </li>
         <li class="nav-item">
+          <!--*ngIf='token == null'--> 
+          <a class="nav-link" id="navbarDropdown" routerLink="/listCourses">
+            Courses
+          </a>
+        </li>
+        <li class="nav-item">
             <!--*ngIf='token == null'--> 
           <a class="nav-link" *ngIf='token == null' id="navbarDropdown" data-toggle="modal" data-target="#exampleModalCenter">
               Sign in
           </a>
       </li>
+      
         <!--*ngIf="token != null || token != undefined"-->
         <li class="nav-item dropdown" *ngIf="token != null || token != undefined">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -30,7 +37,7 @@
           <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
             <li><a class="dropdown-item" routerLink="/profileUser">Profile</a></li>
             <li><a class="dropdown-item" routerLink="/home">Home</a></li>
-            <li><a class="dropdown-item" routerLink="/createCourse">Course</a></li>
+            <li><a class="dropdown-item" routerLink="/myCourses">My Courses</a></li>
             <li><hr class="dropdown-divider"></li>
             <!--"--> 
             <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
