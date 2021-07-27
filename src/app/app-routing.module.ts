@@ -6,12 +6,18 @@ import { ListTopicsComponent } from './components/list-topics/list-topics.compon
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
+import { ReportUserComponent } from './components/report-user/report-user.component';
 
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
+
+import { ListProgressComponent } from './components/list-progress/list-progress.component';
+import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
+import { CreateProgressComponent } from './components/create-progress/create-progress.component';
 import { ProfileCourseComponent } from './components/profile-course/profile-course.component';
 import { MyCoursesComponent } from './components/my-courses/my-courses.component';
+
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: '', redirectTo: 'Home', pathMatch:'full'},
@@ -25,7 +31,11 @@ const routes: Routes = [
   {path: 'createCourse', component: CreateCourseComponent},
   {path: 'listCourses', component: ListCoursesComponent},
   {path: 'profileCourse', component : ProfileCourseComponent},
-  {path: 'myCourses', component : MyCoursesComponent}
+  {path: 'myCourses', component : MyCoursesComponent},
+  {path: 'createProgress', component: ProfileProgressComponent},
+  {path: 'listProgress', component: ListProgressComponent},
+  {path: 'profileProgress', component: CreateProgressComponent},
+  {path: 'reportUser', component: ReportUserComponent}
 ];
 
 @NgModule({

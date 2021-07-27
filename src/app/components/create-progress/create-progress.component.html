@@ -1,0 +1,37 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="progressName">CREATE</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>PRO<br>GRE<br>SS</h1>
+        </div>
+        <div style="padding: 1rem; width: 30%; text-align: center;display: flex;">
+        </div>
+        <div class="formCreateTopic">
+                <form class="formCss" #createProgress="ngForm" (ngSubmit)="onSubmit(createProgress)">
+                    <div class="inputBox">
+                        <label for="inputUser">USER</label>
+                        <input [(ngModel)]="progress.user" name='user' #user="ngModel" id="inputUser" type="text" placeholder="USER" required>     
+                    </div>
+                    <div class="inputBox">
+                        <label id="LabelTotalProgress" for="inputTotalProgress" style="margin-left:auto">PROGRESS</label>
+                        <input [(ngModel)]="progress.total" name='totalProgress' #totalProgress="ngModel" id="inputTotalProgress" type="text" placeholder="% of progress" required>                     
+                    </div>
+                    <div class="styleButton">
+                        <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Cancel</a>
+                        <button type="submit" id="buttonCreate" class="btn" [disabled]="!createProgress.form.valid">Save</button>
+                    </div>   
+                </form>
+        </div>
+    </div>
+</div>
