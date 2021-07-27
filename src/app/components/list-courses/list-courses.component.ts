@@ -22,13 +22,17 @@ export class ListCoursesComponent implements OnInit {
   public uri : String; 
 
   constructor(private restCourses : RestCourseService, private restUser : RestUserService, private route : Router) {
-    this.user = this.restUser.getUser()._id; 
+    this.user = this.restUser.getUser(); 
     this.uri = CONNECTION.URI; 
    }
 
   ngOnInit(): void {
-    this.coursesPublic();
     this.token = localStorage.getItem('token');
+    if(this.token == null){
+      this.coursesPublic();
+    }else{
+      this.allCourses();
+    }   
   }
 
   obtenerData(courseSelect){
@@ -48,4 +52,14 @@ export class ListCoursesComponent implements OnInit {
     error => alert(error.error.message));
   }
 
+  allCourses(){
+    this.restCourses.listAllCourses().subscribe((res : any)=>{
+      if(res.coursesFind){
+        this.listCourses = res.coursesFind;
+      }else{
+        alert(res.message);
+      }
+    },
+    error => alert(error.error.message));
+  }
 }

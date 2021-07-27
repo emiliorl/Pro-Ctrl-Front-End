@@ -36,7 +36,7 @@ export class MyCoursesComponent implements OnInit {
   }
 
   coursesPublic(){
-    this.restCourses.listCoursesAdmin(this.user._id).subscribe((res : any)=>{
+    this.restCourses.listMyCourses(this.user._id).subscribe((res : any)=>{
       if(res.coursesFind){
         this.listCourses = res.coursesFind;
       }else{

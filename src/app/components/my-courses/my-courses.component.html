@@ -15,7 +15,7 @@
         <div id="title">
             <h1>CO<br>URS<br>ES</h1>
             <br>
-            <button type="button" id="buttonCreate" class="btn" routerLink="/createCourse">NEW COURSE</button>
+            <button type="button" id="buttonCreate" class="btn" routerLink="/createCourse" *ngIf="user.rol != 'ALUMNO'">NEW COURSE</button>
         </div>
         <div id="tableDiv" *ngIf="listCourses?.length > 0;else noCourses">
             
@@ -27,14 +27,16 @@
                         <tr>
                             <th>ID</th>
                             <th>NAME</th>     
-                            <th>PROGRESS</th>
+                            <th *ngIf="user.rol == 'ALUMNO'">PROGRESS</th>
+                            <th *ngIf="user.rol != 'ALUMNO'">USERS</th>
                             <th>OPTIONS</th>  
                         </tr>
                     </thead>
                     <tr *ngFor="let course of listCourses let i = index">
                         <td>{{course.idCourse}}</td>
                         <td>{{course.name}}</td>
-                        <td>PROGRESS</td>                        
+                        <td *ngIf="user.rol == 'ALUMNO'">PROGRESS</td>
+                        <td *ngIf="user.rol != 'ALUMNO'">Conteo :(</td>
                         <!--
                             <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
                         -->

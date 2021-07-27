@@ -20,12 +20,12 @@ export class ProfileCourseComponent implements OnInit {
 
   constructor(private restUser : RestUserService, private restCourse : RestCourseService, private route : Router) {
     this.possiblePass = '';
-    
+    this.user = this.restUser.getUser();
    }
 
   ngOnInit(): void {
     this.course = this.restCourse.getCourseStorage();
-    this.user = this.restUser.getUser();
+    
   }
 
   onSubmit(coursoUpdated){

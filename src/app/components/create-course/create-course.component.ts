@@ -34,6 +34,7 @@ export class CreateCourseComponent implements OnInit {
         this.course = new Course('','','', null ,'','','', '',[],[],[]);
         courseSave.reset();
         alert(res.message);
+        this.route.navigateByUrl('myCourses');
       }else{
         alert(res.message);
       }

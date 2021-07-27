@@ -67,8 +67,13 @@ export class RestCourseService {
     .pipe(map(this.extractData));
   }
 
-  listCoursesAdmin(userId){
-    return this.http.get(this.uri + '/listCoursesAdmin/' + userId,  this.httpOptionAuth)
+  listAllCourses(){
+    return this.http.get(this.uri + '/getAllCourses', {})
+    .pipe(map(this.extractData));
+  }
+
+  listMyCourses(userId){
+    return this.http.get(this.uri + '/listMyCourses/' + userId,  this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
