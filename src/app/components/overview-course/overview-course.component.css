@@ -1,0 +1,102 @@
+h1, h2{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#courseName{
+    margin-top: 2%;
+    text-align: left;
+}
+
+.titleTopic{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 37px;
+    width: 70%;
+    padding-top: 1%;
+    vertical-align: middle;
+    cursor: pointer;
+    
+}
+
+.contentTopic{
+    font-family: 'Metrophobic', sans-serif;
+    width: 70%;
+    vertical-align: top;
+    text-align: justify;
+    text-justify: inter-word;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.imageTopics{
+    width: 30%;
+    text-align: center;
+    border-bottom: 0.1rem dashed #0096C7;
+    cursor: pointer;
+}
+
+.imageTopic{
+    height: 12rem;
+    border-radius: 6px;
+    padding: 0.2rem 0;
+}
+
+h1{
+    vertical-align: top;
+    text-align: left;
+    padding-left: 25%;
+    color: black;
+    font-weight: bold;
+    font-size: 85.5px;
+    letter-spacing: 1rem;
+    text-shadow: 5px 5px #FF8500;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 60px;
+    color: #0380A8;
+    cursor: pointer;
+}
+
+#title{
+    width: 25%;
+    text-align: center;
+    padding-left: 2%;
+}
+
+#tableDiv{
+    width: 75%;
+    padding-right: 5%;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.searchTopics{
+    width: 50%;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    background-color: #FFE2B2;
+    padding: 2%;
+    cursor: pointer;
+}
+
+.searchTopics:focus{
+    outline-color: #FF8500;
+    outline-offset: -1px;
+    background-color: white;
+}
+
+.searchTopics::placeholder{
+    color: gray;
+}
+
+form.example button {
+    width: 20%;
+    background: #FF8500;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    cursor: pointer;
+    padding: 2%;
+  }

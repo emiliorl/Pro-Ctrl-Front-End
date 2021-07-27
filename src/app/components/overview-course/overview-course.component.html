@@ -1,0 +1,52 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>CO<br>U<br>RS</h1>
+        </div>
+        <div style="display: flex;flex-direction: column;width: 75%;margin: auto; padding-right: 8rem; padding-left: 2rem;">
+            <div>
+                <table style="margin: auto;">
+                    <tr>
+                        <td rowspan="3" class="imageTopics">
+        <!--                     <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
+         -->                    <img class="imageTopic"  id="imageTopic" src="../../../assets/img/8.png">
+                        </td>
+                        <td><h2 id="courseName">Math</h2></td>
+                    </tr>   
+                    <tr>
+                        <td><button style="margin-bottom: 2%;">Sign Up</button></td>
+                    </tr>  
+                    <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">
+                        <td class="contentTopic">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo eligendi, ducimus voluptate optio maxime facere pariatur a non eius praesentium sint ad nihil laborum, quasi beatae porro perspiciatis ex nemo?</td>
+                    </tr>    
+                </table>
+            </div>
+            <div *ngIf="topics?.length > 0;else noTopics">
+                <table style="margin: auto;" *ngFor="let topic of topics | searchTopic:searchTopic">
+                    <tr>
+                        <td rowspan="2" class="imageTopics">
+                            <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
+                            <img class="imageTopic" *ngIf="topic.imageTopic == '' || topic.imageTopic == undefined" id="imageTopic" src="../../../assets/img/8.png" (click)="obtenerData(topic)">
+                        </td>
+                        <td class="titleTopic" (click)="obtenerData(topic)">{{topic.nameTopic}} ({{topic.level}} LVL.)</td>
+                    </tr>     
+                    <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">
+                        <td class="contentTopic" *ngIf='topic.descriptionTopic' (click)="obtenerData(topic)">{{topic.descriptionTopic}}</td>
+                    </tr>    
+                </table>
+            </div>
+            <ng-template #noTopics>
+                <h1 style="text-shadow: 5px 5px #0380A8;">No topics to show...</h1>
+            </ng-template>
+        </div>
+    </div>
+</div>

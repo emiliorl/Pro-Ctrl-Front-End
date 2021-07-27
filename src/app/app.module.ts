@@ -26,6 +26,7 @@ import { ReportAdminComponent } from './components/report-admin/report-admin.com
 import { ListProgressComponent } from './components/list-progress/list-progress.component';
 import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
 import { CreateProgressComponent } from './components/create-progress/create-progress.component';
+import { OverviewCourseComponent } from './components/overview-course/overview-course.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CreateProgressComponent } from './components/create-progress/create-pro
     ProfileProgressComponent,
     CreateProgressComponent,
     ReportUserComponent,
-    ReportAdminComponent
+    ReportAdminComponent,
+    OverviewCourseComponent
   ],
   imports: [
     BrowserModule,
