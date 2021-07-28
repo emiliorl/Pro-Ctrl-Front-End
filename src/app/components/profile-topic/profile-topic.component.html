@@ -16,12 +16,12 @@
             <h1>TO<br>P<br>IC</h1>
         </div>
         <div id="content">
-            <div style="display: flex;">
-                <div style="padding: 1rem;">
-                    <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
+            <div style="display: flex;align-items: top;justify-content: center;">
+                <div style="display: flex;padding: 1rem;">
+                    <img class="imageTopic" style="text-align: center;" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
                     <img class="imageTopic" *ngIf="topic.imageTopic == '' || topic.imageTopic == undefined" id="imageTopic" src="../../../assets/img/8.png" (click)="obtenerData(topic)">
                 </div>
-                <div style="padding: 1rem;" class="contentTopic">
+                <div style="padding: 1rem; display: flex;" class="contentTopic">
                     {{topic.descriptionTopic}}
                 </div>
             </div>

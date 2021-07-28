@@ -18,34 +18,27 @@
             <button type="button" id="buttonCreate" class="btn" routerLink="/createCourse" *ngIf="user.rol != 'ALUMNO'">NEW COURSE</button>
         </div>
         <div id="tableDiv" *ngIf="listCourses?.length > 0;else noCourses">
-            
-
-            <div style="overflow-x:auto; margin-bottom: 2em;">
-                <br>
-                <table>
-                    <thead>            
-                        <tr>
-                            <th>ID</th>
-                            <th>NAME</th>     
-                            <th *ngIf="user.rol == 'ALUMNO'">PROGRESS</th>
-                            <th *ngIf="user.rol != 'ALUMNO'">USERS</th>
-                            <th>OPTIONS</th>  
-                        </tr>
-                    </thead>
-                    <tr *ngFor="let course of listCourses let i = index">
-                        <td>{{course.idCourse}}</td>
-                        <td>{{course.name}}</td>
-                        <td *ngIf="user.rol == 'ALUMNO'">PROGRESS</td>
-                        <td *ngIf="user.rol != 'ALUMNO'">Conteo :(</td>
-                        <!--
-                            <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
-                        -->
-                        <td><button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button></td>
-                    </tr>            
-                </table>
-            </div>
-
-
+            <table style="margin: auto;">
+                <thead>            
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>     
+                        <th *ngIf="user.rol == 'ALUMNO'">PROGRESS</th>
+                        <th *ngIf="user.rol != 'ALUMNO'">USERS</th>
+                        <th style="border-right: none;">OPTIONS</th>  
+                    </tr>
+                </thead>
+                <tr *ngFor="let course of listCourses let i = index">
+                    <td>{{course.idCourse}}</td>
+                    <td>{{course.name}}</td>
+                    <td *ngIf="user.rol == 'ALUMNO'">PROGRESS</td>
+                    <td *ngIf="user.rol != 'ALUMNO'">Conteo :(</td>
+                    <!--
+                        <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
+                    -->
+                    <td style="border-right: none;"><button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button></td>
+                </tr>            
+            </table>
         </div>
         <ng-template #noCourses>
             <h1 style="text-shadow: 5px 5px #0380A8;">No courses to show...</h1>

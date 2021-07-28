@@ -10,27 +10,38 @@
 <div>
     <div style="display: flex;">
         <div id="title">
-            <h1>CO<br>U<br>RS</h1>
+            <h1>CO<br>UR<br>SE</h1>
+            <form class="example" action="">
+                <input [(ngModel)]="searchTopic" class="searchTopics" type="search" name="searchTopic" placeholder="Search topics">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
         <div style="display: flex;flex-direction: column;width: 75%;margin: auto; padding-right: 8rem; padding-left: 2rem;">
-            <div>
+            <div style="display: flex;">
+                <h2 id="courseName" style="margin-left: 2rem; font-size: 4.5rem;">{{course.name}}</h2>
+                <div style="display: flex;" *ngIf="user == null || user == undefined">
+                    <button id="buttonSignUp" data-toggle="modal" data-target="#modalLogin">Sign Up</button>
+                </div>
+                <div style="display: flex;" *ngIf="user != null || user != undefined">
+                    <button id="buttonSignUp">Sign Up</button>
+                    <button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="obtenerCourse(course)">Edit</button>
+                </div>
+            </div>
+            <div style="margin-bottom: 5rem">
                 <table style="margin: auto;">
                     <tr>
-                        <td rowspan="3" class="imageTopics">
+                        <td rowspan="3" class="imageCourse">
         <!--                     <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
          -->                    <img class="imageTopic"  id="imageTopic" src="../../../assets/img/8.png">
                         </td>
-                        <td><h2 id="courseName">Math</h2></td>
-                    </tr>   
+                    </tr> 
                     <tr>
-                        <td><button style="margin-bottom: 2%;">Sign Up</button></td>
-                    </tr>  
-                    <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">
-                        <td class="contentTopic">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo eligendi, ducimus voluptate optio maxime facere pariatur a non eius praesentium sint ad nihil laborum, quasi beatae porro perspiciatis ex nemo?</td>
+                        <td class="contentTopic">{{course.description}}</td>
                     </tr>    
                 </table>
             </div>
-            <div *ngIf="topics?.length > 0;else noTopics">
+            <div *ngIf="topics?.length > 0;else noTopics" style="margin-bottom: 5rem">
+                <h2 id="courseName" style="text-align: center;">Topics</h2>
                 <table style="margin: auto;" *ngFor="let topic of topics | searchTopic:searchTopic">
                     <tr>
                         <td rowspan="2" class="imageTopics">

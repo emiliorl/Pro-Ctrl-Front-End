@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CONNECTION } from 'src/app/services/global';
 import { User } from 'src/app/models/user';
+import { Course } from 'src/app/models/course';
 import { Topic } from 'src/app/models/topic';
 import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 import { RestTopicService } from 'src/app/services/restTopic/rest-topic.service';
+import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 
 @Component({
   selector: 'app-edit-topic',
@@ -21,17 +23,18 @@ export class EditTopicComponent implements OnInit {
   token: string;
   topicSelect: Topic;
 
-  constructor(private restUser:RestUserService, private restTopic:RestTopicService, private route: Router) { 
+  constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
     this.uri = CONNECTION.URI;
     this.user = this.restUser.getUser();
     this.topic = this.restTopic.getTopicSelect();
+    this.course = this.restCourse.getCourseStorage();
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.restTopic.updateTopic(this.user, "60f5f30629d18b0b52e47c7d", this.topic).subscribe((res:any) => {
+    this.restTopic.updateTopic(this.user, this.course, this.topic).subscribe((res:any) => {
       if(res.topicUpdated){
         localStorage.setItem('topicSelect', JSON.stringify(res.topicUpdated))
         alert(res.message);
@@ -45,7 +48,7 @@ export class EditTopicComponent implements OnInit {
   }
 
   deleteTopic(){
-    this.restTopic.deleteTopic(this.user, "60f5f30629d18b0b52e47c7d", this.topic, this.possiblePass).subscribe((res:any) => {
+    this.restTopic.deleteTopic(this.user, this.course, this.topic, this.possiblePass).subscribe((res:any) => {
       if(res.topicDelete){
         alert(res.message);
         localStorage.removeItem('topicSelect');

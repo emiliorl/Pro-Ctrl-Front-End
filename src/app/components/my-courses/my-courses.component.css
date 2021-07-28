@@ -68,7 +68,13 @@ h2{
     width: 75%;
     padding-right: 5%;
     margin: auto;
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+#tableDiv td, th{
+    width: 20%;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.08rem;
 }
 
 .searchTopics{

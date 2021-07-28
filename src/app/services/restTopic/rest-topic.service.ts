@@ -47,12 +47,12 @@ export class RestTopicService {
 
   createTopic(User,Course,Topic){
     let params = JSON.stringify(Topic); 
-    return this.http.post(this.uri+User._id+'/'+Course+'/createTopic', params, this.httpOptionAuth)
+    return this.http.post(this.uri+User._id+'/'+Course._id+'/createTopic', params, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
   getTopics(Course){
-    return this.http.get(this.uri+Course+'/listTopics', this.httpOptions)
+    return this.http.get(this.uri+Course._id+'/listTopics', this.httpOptions)
     .pipe(map(this.extractData));
   }
 
@@ -68,12 +68,12 @@ export class RestTopicService {
 
   updateTopic(User,Course, Topic){
     let params = JSON.stringify(Topic);
-    return this.http.put(this.uri+'/'+User._id+'/'+Course+'/updateTopic/'+Topic._id, params, this.httpOptionAuth)
+    return this.http.put(this.uri+'/'+User._id+'/'+Course._id+'/updateTopic/'+Topic._id, params, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
   deleteTopic(User, Course, Topic, possiblePassword){
-    return this.http.post(this.uri+User._id+'/'+Course+'/removeTopic/'+Topic._id, {password : possiblePassword} ,this.httpOptionAuth)
+    return this.http.post(this.uri+User._id+'/'+Course._id+'/removeTopic/'+Topic._id, {password : possiblePassword} ,this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 

@@ -71,7 +71,7 @@ a {
     text-align: center;
     border-width: 3.5em;
     border-radius: 20px;
-    border: #0380A8 18px solid !important;
+    border: #0380A8 6px solid !important;
     width: 90%;
 }
 
@@ -88,11 +88,15 @@ a {
     text-shadow: none;
     font-size: 1rem;
     opacity: none;
-    border-radius: 25px;
-    text-shadow: none;
-    line-height: none;
+    border-radius: 50%;
     margin-right: 0.5em;
     margin-top: 0.5em;
+    width: 2rem;
+    height: 2rem;
+}
+
+.close span{
+    margin: auto;
 }
 
 h5{
