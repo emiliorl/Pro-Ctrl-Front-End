@@ -10,7 +10,7 @@ export class Course{
         public imageCourse : String,
         public type : String,
         public topics : [],
-        public administrator : [],
+        public administrator : String,
         public users : []
     ){}
 }

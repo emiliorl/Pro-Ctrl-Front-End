@@ -1,0 +1,39 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">CREATE</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>LE<br>SS<br>ON</h1>
+        </div>
+        <div class="formCreateTopic">
+                <form class="formCss" #createLesson="ngForm" (ngSubmit)="onSubmit(createLesson)">
+                    <div class="inputBox">
+                        <label for="inputNameTopic">NAME</label>
+                        <input [(ngModel)]="lesson.nameLesson" name='nameLesson' #nameLesson="ngModel" id="inputNameLesson" type="text" placeholder="NAME LESSON" required>     
+                    </div>
+                    <div class="inputBox">
+                        <label for="inputLevel">GRADE</label>
+                        <input [(ngModel)]="lesson.gradeLesson" name='gradeLesson' #gradeLesson="ngModel" id="inputGrade" type="number" placeholder="LEVEL">                 
+                    </div>
+                    <div class="inputBox">
+                        <label id="LabelDescriptionTopic" for="inputDescriptionTopic" style="margin-left:auto">CONTENT</label>
+                        <input [(ngModel)]="lesson.content" name='content' #content="ngModel" id="inputContent" type="text" placeholder="CONTENT" required>                     
+                    </div>
+                    <div class="styleButton">
+                        <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Cancel</a>
+                        <button type="submit" id="buttonCreate" class="btn" [disabled]="!createLesson.form.valid">Save</button>
+                    </div>   
+                </form>
+        </div>
+    </div>
+</div>

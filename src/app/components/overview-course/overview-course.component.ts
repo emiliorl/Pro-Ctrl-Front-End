@@ -9,11 +9,11 @@ import { RestTopicService } from 'src/app/services/restTopic/rest-topic.service'
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 
 @Component({
-  selector: 'app-list-topics',
-  templateUrl: './list-topics.component.html',
-  styleUrls: ['./list-topics.component.css']
+  selector: 'app-overview-course',
+  templateUrl: './overview-course.component.html',
+  styleUrls: ['./overview-course.component.css']
 })
-export class ListTopicsComponent implements OnInit {
+export class OverviewCourseComponent implements OnInit {
 
   public user: User;
   public course: Course;
@@ -23,8 +23,9 @@ export class ListTopicsComponent implements OnInit {
   topic;
   searchTopic;
   topicSelect: Topic;
+  courseSelected: Course;
 
-  constructor(private restUser:RestUserService,  private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
+  constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
     this.uri = CONNECTION.URI;
   }
 
@@ -41,10 +42,10 @@ export class ListTopicsComponent implements OnInit {
     this.route.navigateByUrl('profileTopic')
   }
 
-  editTopic(topic){
-    this.topicSelect = topic;
-    localStorage.setItem('topicSelect', JSON.stringify(this.topicSelect));
-    this.route.navigateByUrl('editTopic')
+  obtenerCourse(courseSelect){
+    this.courseSelected = courseSelect;
+    localStorage.setItem('courseSeclect', JSON.stringify(this.courseSelected));
+    this.route.navigateByUrl('profileCourse');
   }
 
   listTopics(){

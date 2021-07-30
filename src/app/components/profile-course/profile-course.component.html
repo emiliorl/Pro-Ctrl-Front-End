@@ -54,9 +54,10 @@
                         <input [(ngModel)]="course.description" name='description' #description="ngModel" id="inputDescriptionTopic" type="text" placeholder="DESCRIPTION" required>                     
                     </div>
                     
-                    <div class="styleButton">
+                    <div class="styleButton" style="margin-bottom: 2rem;">
                         <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Cancel</a>
                         <button type="submit" id="buttonUpdate" class="btn" [disabled]="!createCourse.form.valid">Update</button>
+                        <button type="button" id="buttonSuscribe" class="btn" routerLink="/listTopics">Manage topics</button>
                         <button type="button" id="buttonDelete" class="btn" data-toggle="modal" data-target="#deleteTeamModal">Delete</button>
                         <button type="button" id="buttonSuscribe" class="btn" data-toggle="modal"  *ngIf="course.type == 'PRIVATE'" data-target="#inscriptionCoursePassword">Suscribe</button>
                         <!--

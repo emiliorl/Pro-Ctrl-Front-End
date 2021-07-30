@@ -1,0 +1,63 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>CO<br>UR<br>SE</h1>
+            <form class="example" action="">
+                <input [(ngModel)]="searchTopic" class="searchTopics" type="search" name="searchTopic" placeholder="Search topics">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div style="display: flex;flex-direction: column;width: 75%;margin: auto; padding-right: 8rem; padding-left: 2rem;">
+            <div style="display: flex;">
+                <h2 id="courseName" style="margin-left: 2rem; font-size: 4.5rem;">{{course.name}}</h2>
+                <div style="display: flex;" *ngIf="user == null || user == undefined">
+                    <button id="buttonSignUp" data-toggle="modal" data-target="#modalLogin">Sign Up</button>
+                </div>
+                <div style="display: flex;" *ngIf="user != null || user != undefined">
+                    <button id="buttonSignUp">Sign Up</button>
+                    <button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="obtenerCourse(course)">Edit</button>
+                </div>
+            </div>
+            <div style="margin-bottom: 5rem">
+                <table style="margin: auto;">
+                    <tr>
+                        <td rowspan="3" class="imageCourse">
+        <!--                     <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
+         -->                    <img class="imageTopic"  id="imageTopic" src="../../../assets/img/8.png">
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="contentTopic">{{course.description}}</td>
+                    </tr>    
+                </table>
+            </div>
+            <div *ngIf="topics?.length > 0;else noTopics" style="margin-bottom: 5rem">
+                <h2 id="courseName" style="text-align: center;">Topics</h2>
+                <table style="margin: auto;" *ngFor="let topic of topics | searchTopic:searchTopic">
+                    <tr>
+                        <td rowspan="2" class="imageTopics">
+                            <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
+                            <img class="imageTopic" *ngIf="topic.imageTopic == '' || topic.imageTopic == undefined" id="imageTopic" src="../../../assets/img/8.png" (click)="obtenerData(topic)">
+                        </td>
+                        <td class="titleTopic" (click)="obtenerData(topic)">{{topic.nameTopic}} ({{topic.level}} LVL.)</td>
+                    </tr>     
+                    <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">
+                        <td class="contentTopic" *ngIf='topic.descriptionTopic' (click)="obtenerData(topic)">{{topic.descriptionTopic}}</td>
+                    </tr>    
+                </table>
+            </div>
+            <ng-template #noTopics>
+                <h1 style="text-shadow: 5px 5px #0380A8;">No topics to show...</h1>
+            </ng-template>
+        </div>
+    </div>
+</div>

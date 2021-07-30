@@ -110,6 +110,7 @@ form.example button {
     border-width: 0.2rem;
     color: white;
     margin: auto;
+    margin-bottom: 1rem;
 }
 
 #buttonCreate{

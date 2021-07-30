@@ -6,7 +6,7 @@ export class Topic{
         public descriptionTopic: String,
         public course: [],
         public level: Number,
-        public content: String,
+        public content: [],
         public imageTopic: String
     ){}  
 

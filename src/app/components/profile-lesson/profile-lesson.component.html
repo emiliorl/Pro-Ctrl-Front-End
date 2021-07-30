@@ -1,0 +1,65 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">UPDATE</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>LE<br>SS<br>ON</h1>
+        </div>
+        <div class="formCreateTopic">
+            <form class="formCss" #createLesson="ngForm" (ngSubmit)="onSubmit()">
+                <div class="inputBox">
+                    <label for="inputNameTopic">NAME</label>
+                    <input [(ngModel)]="lesson.nameLesson" name='nameLesson' #nameLesson="ngModel" id="inputNameLesson" type="text" placeholder="NAME LESSON" required>     
+                </div>
+                <div class="inputBox">
+                    <label for="inputLevel">GRADE</label>
+                    <input [(ngModel)]="lesson.gradeLesson" name='gradeLesson' #gradeLesson="ngModel" id="inputGrade" type="number" placeholder="LEVEL">                 
+                </div>
+                <div class="inputBox">
+                    <label id="LabelDescriptionTopic" for="inputDescriptionTopic" style="margin-left:auto">CONTENT</label>
+                    <input [(ngModel)]="lesson.content" name='content' #content="ngModel" id="inputContent" type="text" placeholder="CONTENT" required>                     
+                </div>
+                <div class="styleButton">
+                    <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Cancel</a>
+                    <button type="submit" id="buttonUpdate" class="btn" [disabled]="!createLesson.form.valid">Update</button>
+                    <a id="buttonDelete" class="btn" data-toggle="modal" data-target="#deleteModal">Delete</a>
+                </div>   
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <h3>This action is irreversible!</h3>
+        <span>Enter passsword {{user.username}}</span>
+        <form #topicRemoved='ngForm'>
+            <label for="passwordRemove"></label>
+            <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteLesson()' [disabled]="!topicRemoved.form.valid">I'm sure</button>
+        </div>
+    </div>
+    </div>
+</div>

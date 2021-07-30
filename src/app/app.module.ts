@@ -14,7 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ListTopicsComponent } from './components/list-topics/list-topics.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 
-import { SearchTopicPipe } from './pipes/searchTopic.pipe';
+import { SearchTopicPipe } from './pipes/search-topic/searchTopic.pipe';
 import { ProfileTopicComponent } from './components/profile-topic/profile-topic.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
@@ -29,6 +29,10 @@ import { ReportAdminComponent } from './components/report-admin/report-admin.com
 import { ListProgressComponent } from './components/list-progress/list-progress.component';
 import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
 import { CreateProgressComponent } from './components/create-progress/create-progress.component';
+import { OverviewCourseComponent } from './components/overview-course/overview-course.component';
+import { CreateLessonComponent } from './components/create-lesson/create-lesson.component';
+import { ListLessonsComponent } from './components/list-lessons/list-lessons.component';
+import { ProfileLessonComponent } from './components/profile-lesson/profile-lesson.component';
 
 
 @NgModule({
@@ -51,8 +55,11 @@ import { CreateProgressComponent } from './components/create-progress/create-pro
     ProfileProgressComponent,
     CreateProgressComponent,
     ReportUserComponent,
-    ReportAdminComponent
-
+    ReportAdminComponent,
+    OverviewCourseComponent,
+    CreateLessonComponent,
+    ListLessonsComponent,
+    ProfileLessonComponent
   ],
   imports: [
     BrowserModule,

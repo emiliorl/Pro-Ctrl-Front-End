@@ -92,9 +92,9 @@ h2{
     padding: 0.8rem;
 }
 
-#buttonCancel, #buttonUpdate, #buttonDelete, #buttonSuscribe{
+#buttonCancel, #buttonCreate{
     width: 40%;
-    margin: 2%;
+    margin: 4%;
     padding: 0;
     border-radius: 0%;
     font-weight: bold;
@@ -107,20 +107,8 @@ h2{
     color: #646363;
 }
 
-#buttonUpdate{
-    background-color: #FFBD44;
-    border-width: 0.2rem;
-    color: white;
-}
-
-#buttonDelete{
-    background-color: #FF605C;
-    border-width: 0.2rem;
-    color: white;
-}
-
-#buttonSuscribe{
-    background-color: #0380A8;
+#buttonCreate{
+    background-color: #A1C22F;
     border-width: 0.2rem;
     color: white;
 }

@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div>
-    <div>
-        <h2 id="courseName">Math</h2>
+    <div style="text-align: center;">
+        <h2 id="courseName">{{course.name}}</h2>
+        <button type="button" id="buttonCreate" class="btn" routerLink="/createTopic" *ngIf="course.administrator == user._id">New Topic</button>
     </div>
     <div style="display: flex;">
         <div id="title">
@@ -22,12 +23,13 @@
         <div id="tableDiv" *ngIf="topics?.length > 0;else noTopics">
             <table style="margin: auto;" *ngFor="let topic of topics | searchTopic:searchTopic">
                 <tr>
-                    <td rowspan="2" class="imageTopics">
+                    <td rowspan="3" class="imageTopics">
                         <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
                         <img class="imageTopic" *ngIf="topic.imageTopic == '' || topic.imageTopic == undefined" id="imageTopic" src="../../../assets/img/8.png" (click)="obtenerData(topic)">
                     </td>
                     <td class="titleTopic" (click)="obtenerData(topic)">{{topic.nameTopic}} ({{topic.level}} LVL.)</td>
-                </tr>     
+                </tr>
+                <tr><button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="editTopic(topic)">Edit</button></tr>     
                 <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">
                     <td class="contentTopic" *ngIf='topic.descriptionTopic' (click)="obtenerData(topic)">{{topic.descriptionTopic}}</td>
                 </tr>    

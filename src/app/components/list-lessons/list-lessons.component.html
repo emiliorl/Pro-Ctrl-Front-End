@@ -1,0 +1,31 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div style="text-align: center;">
+        <h2 id="courseName">{{topic.nameTopic}}</h2>
+        <button type="button" id="buttonCreate" class="btn" routerLink="/createLesson" *ngIf="course.administrator == user._id">New Topic</button>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>LE<br>SSO<br>NS</h1>
+        </div>
+        <div id="tableDiv" *ngIf="lessons?.length > 0;else noTopics">
+            <table style="margin: auto;" *ngFor="let lesson of lessons">
+                <tr>
+                    <td class="titleTopic" (click)="obtenerData(lesson)">{{lesson.nameLesson}} ({{lesson.gradeLesson}} %)</td>
+                </tr>
+                <tr><button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="editTopic(lesson)">Edit</button></tr>        
+            </table>
+        </div>
+        <ng-template #noTopics>
+            <h1 style="text-shadow: 5px 5px #0380A8;">No lessons to show...</h1>
+        </ng-template>
+    </div>
+</div>

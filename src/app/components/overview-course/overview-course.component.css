@@ -4,7 +4,8 @@ h1, h2{
 }
 
 #courseName{
-    margin: 2%;
+    margin-top: 2%;
+    text-align: left;
 }
 
 .titleTopic{
@@ -34,6 +35,13 @@ h1, h2{
     cursor: pointer;
 }
 
+.imageCourse{
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 5rem;
+}
+
 .imageTopic{
     height: 12rem;
     border-radius: 6px;
@@ -61,6 +69,7 @@ h2{
 #title{
     width: 25%;
     text-align: center;
+    margin-top: 5rem;
     padding-left: 2%;
 }
 
@@ -98,7 +107,19 @@ form.example button {
     border: none;
     cursor: pointer;
     padding: 2%;
-  }
+}
+
+#buttonSignUp{
+    border-radius: 0%;
+    padding: 0.1rem 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    background-color: #A1C22F;
+    border-width: 0.2rem;
+    color: white;
+    margin: auto 0 1.8rem 2rem;
+}
 
 #buttonEdit{
     border-radius: 0%;
@@ -109,13 +130,5 @@ form.example button {
     background-color: #FF8500;
     border-width: 0.2rem;
     color: white;
-    margin: auto;
-}
-
-#buttonCreate{
-    background-color: #A1C22F;
-    border-width: 0.2rem;
-    color: white;
-    margin-bottom: 2rem;
-    font-weight: bolder;
+    margin: auto 0 1.8rem 2rem;
 }

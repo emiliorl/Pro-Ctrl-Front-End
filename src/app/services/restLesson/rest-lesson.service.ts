@@ -6,7 +6,7 @@ import { count, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class RestTopicService {
+export class RestLessonService {
 
   public uri:string;
   
@@ -22,9 +22,9 @@ export class RestTopicService {
     })
   };
 
-  public topic;
+  public lesson;
   public token;
-  public topicSelect;
+  public lessonSelect;
 
   private extractData(res: Response){
     let body = res;
@@ -45,35 +45,35 @@ export class RestTopicService {
     return this.token;
   }
 
-  createTopic(User,Course,Topic){
-    let params = JSON.stringify(Topic); 
-    return this.http.post(this.uri+User._id+'/'+Course._id+'/createTopic', params, this.httpOptionAuth)
+  createLesson(User,Topic,Lesson){
+    let params = JSON.stringify(Lesson); 
+    return this.http.post(this.uri+User._id+'/'+Topic._id+'/createLesson', params, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
-  getTopics(Course){
-    return this.http.get(this.uri+Course._id+'/listTopics', this.httpOptions)
+  getLessons(Topic){
+    return this.http.get(this.uri+Topic._id+'/listLessons', this.httpOptions)
     .pipe(map(this.extractData));
   }
 
-  getTopicSelect(){
-    let topicSelect = JSON.parse(localStorage.getItem('topicSelect'));
-    if(topicSelect != undefined || topicSelect != null){
-      this.topicSelect = topicSelect;
+  getLessonSelect(){
+    let lessonSelect = JSON.parse(localStorage.getItem('lessonSelect'));
+    if(lessonSelect != undefined || lessonSelect != null){
+      this.lessonSelect = lessonSelect;
     }else{
-      this.topicSelect = null;
+      this.lessonSelect = null;
     }
-    return this.topicSelect;
+    return this.lessonSelect;
   }
 
-  updateTopic(User,Course, Topic){
-    let params = JSON.stringify(Topic);
-    return this.http.put(this.uri+'/'+User._id+'/'+Course._id+'/updateTopic/'+Topic._id, params, this.httpOptionAuth)
+  updateLesson(User, Course, Topic, Lesson){
+    let params = JSON.stringify(Lesson);
+    return this.http.put(this.uri+'/'+User._id+'/'+Course._id+'/'+Topic._id+'/updateLesson/'+Lesson._id, params, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
-  deleteTopic(User, Course, Topic, possiblePassword){
-    return this.http.post(this.uri+User._id+'/'+Course._id+'/removeTopic/'+Topic._id, {password : possiblePassword} ,this.httpOptionAuth)
+  deletLesson(User, Course, Topic, Lesson, possiblePassword){
+    return this.http.post(this.uri+User._id+'/'+Course._id+'/'+Topic._id+'/removeLesson/'+Lesson._id, {password : possiblePassword} ,this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
