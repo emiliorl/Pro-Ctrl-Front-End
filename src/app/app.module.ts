@@ -30,6 +30,9 @@ import { ListProgressComponent } from './components/list-progress/list-progress.
 import { ProfileProgressComponent } from './components/profile-progress/profile-progress.component';
 import { CreateProgressComponent } from './components/create-progress/create-progress.component';
 import { OverviewCourseComponent } from './components/overview-course/overview-course.component';
+import { CreateLessonComponent } from './components/create-lesson/create-lesson.component';
+import { ListLessonsComponent } from './components/list-lessons/list-lessons.component';
+import { ProfileLessonComponent } from './components/profile-lesson/profile-lesson.component';
 
 
 @NgModule({
@@ -53,7 +56,10 @@ import { OverviewCourseComponent } from './components/overview-course/overview-c
     CreateProgressComponent,
     ReportUserComponent,
     ReportAdminComponent,
-    OverviewCourseComponent
+    OverviewCourseComponent,
+    CreateLessonComponent,
+    ListLessonsComponent,
+    ProfileLessonComponent
   ],
   imports: [
     BrowserModule,

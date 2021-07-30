@@ -18,6 +18,9 @@ import { CreateProgressComponent } from './components/create-progress/create-pro
 import { ProfileCourseComponent } from './components/profile-course/profile-course.component';
 import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 import { OverviewCourseComponent } from './components/overview-course/overview-course.component';
+import { CreateLessonComponent } from './components/create-lesson/create-lesson.component';
+import { ListLessonsComponent } from './components/list-lessons/list-lessons.component';
+import { ProfileLessonComponent } from './components/profile-lesson/profile-lesson.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -38,6 +41,9 @@ const routes: Routes = [
   {path: 'profileProgress', component: CreateProgressComponent},
   {path: 'reportUser', component: ReportUserComponent},
   {path: 'courseOverview', component: OverviewCourseComponent},
+  {path: 'createLesson', component: CreateLessonComponent},
+  {path: 'listLessons', component: ListLessonsComponent},
+  {path: 'profileLesson', component: ProfileLessonComponent},
 ];
 
 @NgModule({

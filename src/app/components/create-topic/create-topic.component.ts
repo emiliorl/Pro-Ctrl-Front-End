@@ -23,7 +23,7 @@ export class CreateTopicComponent implements OnInit {
   topicSelect: Topic;
 
   constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
-    this.topic = new Topic('','','',[],null,'','');
+    this.topic = new Topic('','','',[],null,[],'');
     this.uri = CONNECTION.URI;
     this.user = this.restUser.getUser();
     this.course = this.restCourse.getCourseStorage();
@@ -35,7 +35,7 @@ export class CreateTopicComponent implements OnInit {
   onSubmit(createForm){
     this.restTopic.createTopic(this.user, this.course, this.topic).subscribe((res:any) => {
       if(res.coursePush){
-        this.topic = new Topic('','','',[],null,'','');
+        this.topic = new Topic('','','',[],null,[],'');
         alert(res.message);
         createForm.reset();
         this.route.navigateByUrl('listTopics');

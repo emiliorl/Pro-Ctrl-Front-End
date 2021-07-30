@@ -35,6 +35,7 @@
                     <div class="styleButton">
                         <a id="buttonCancel" class="btn" onclick="history.go(-1)">Cancel</a>
                         <button type="submit" id="buttonUpdate" class="btn" [disabled]="!createTopic.form.valid">Update</button>
+                        <button type="button" id="buttonSuscribe" class="btn" routerLink="/listLessons">Manage topics</button>
                         <a id="buttonDelete" class="btn" data-toggle="modal" data-target="#deleteModal">Delete</a>
                     </div>   
                 </form>
