@@ -124,3 +124,30 @@ h2{
     border-width: 0.2rem;
     color: white;
 }
+
+.buttonUpload{
+    width: 55px;
+    height: 55px;
+    background-color: #A6A6A6;
+    border: none;
+    border-radius: 180px;
+    margin-top: 93.3%;
+    margin-left: 0%;
+    z-index: 1;
+}
+
+#imageUpload{
+    width: 35px;
+    height: 35px;
+}
+
+#imagePerfil{
+    width: 305px;
+    height: 305px;
+    position: absolute;
+    border-radius: 200px;
+    border: #A6A6A6 8px solid;
+    position: absolute;
+    z-index: -1;
+}
+

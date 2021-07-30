@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CONNECTION } from 'src/app/services/global';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 
@@ -14,13 +15,15 @@ export class ProfileCourseComponent implements OnInit {
   public possiblePass; 
   public user; 
   public token; 
-  public uri; 
+  public uri : string; 
   public typesCourses = ['PUBLIC', 'PRIVATE'];
   public filesToUpload: Array<File>;
 
   constructor(private restUser : RestUserService, private restCourse : RestCourseService, private route : Router) {
     this.possiblePass = '';
     this.user = this.restUser.getUser();
+    this.uri = CONNECTION.URI;
+    this.token = this.restUser.getToken();
    }
 
   ngOnInit(): void {
@@ -57,7 +60,14 @@ export class ProfileCourseComponent implements OnInit {
   }
 
   uploadImage(){
-    
+    this.restCourse.uploadImage(this.user._id, this.course._id, [], this.filesToUpload, this.token, 'imageCourse')
+    .then((res : any)=>{
+      if(res.imageCourse){
+        this.course.imageCourse = res.imageTeam;        
+      }else{
+        alert(res.message);
+      }
+    });
   }
 
   suscribeCourse(){
