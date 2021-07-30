@@ -17,7 +17,7 @@
             <br>
             <button type="button" id="buttonCreate" class="btn" routerLink="/createCourse" *ngIf="user.rol != 'ALUMNO'">NEW COURSE</button>
         </div>
-        <div id="tableDiv" *ngIf="listCourses?.length > 0;else noCourses">
+        <div id="tableDiv" style="margin-bottom: 5rem;" *ngIf="listCourses?.length > 0;else noCourses">
             <table style="margin: auto;">
                 <thead>            
                     <tr>

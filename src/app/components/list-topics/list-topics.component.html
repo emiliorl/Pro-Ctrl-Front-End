@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div>
-    <div>
-        <h2 id="courseName">Math</h2>
+    <div style="text-align: center;">
+        <h2 id="courseName">{{course.name}}</h2>
+        <button type="button" id="buttonCreate" class="btn" routerLink="/createTopic" *ngIf="course.administrator == user._id">New Topic</button>
     </div>
     <div style="display: flex;">
         <div id="title">
