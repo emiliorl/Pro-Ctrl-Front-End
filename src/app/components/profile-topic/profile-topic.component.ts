@@ -4,9 +4,11 @@ import { CONNECTION } from 'src/app/services/global';
 import { User } from 'src/app/models/user';
 import { Course } from 'src/app/models/course';
 import { Topic } from 'src/app/models/topic';
+import { Lesson } from 'src/app/models/lesson';
 import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 import { RestTopicService } from 'src/app/services/restTopic/rest-topic.service';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
+import { RestLessonService } from 'src/app/services/restLesson/rest-lesson.service';
 
 @Component({
   selector: 'app-profile-topic',
@@ -17,12 +19,14 @@ export class ProfileTopicComponent implements OnInit {
 
   public user: User;
   public course: Course;
+  public Lesson: Lesson;
   public uri: string;
   token: string;
+  lessons: [];
   topic;
   topicSelect: Topic;
 
-  constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
+  constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private restLesson:RestLessonService, private route: Router) { 
     this.uri = CONNECTION.URI;
   }
 
@@ -30,6 +34,18 @@ export class ProfileTopicComponent implements OnInit {
     this.topic = this.restTopic.getTopicSelect();
     this.user = this.restUser.getUser();
     this.course = this.restCourse.getCourseStorage();
+    this.listLessons();
+  }
+
+  listLessons(){
+    this.restLesson.getLessons(this.topic).subscribe((res:any) => {
+      if(res.lessons){
+        this.lessons = res.lessons;
+      }else{
+        alert(res.message)
+      }
+    },
+    error => alert(error.error.message));
   }
 
 }

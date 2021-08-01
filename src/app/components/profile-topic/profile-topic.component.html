@@ -14,6 +14,16 @@
     <div style="display: flex;">
         <div id="title">
             <h1>TO<br>P<br>IC</h1>
+            <div>
+                <table>
+                    <tr>
+                        <h3>Content</h3>
+                    </tr>
+                    <tr *ngFor="let lesson of lessons">
+                        <h4>{{lesson.nameLesson}}</h4>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div id="content">
             <div style="display: flex;align-items: top;justify-content: center;">
