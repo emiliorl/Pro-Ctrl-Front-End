@@ -19,12 +19,13 @@ export class ProfileTopicComponent implements OnInit {
 
   public user: User;
   public course: Course;
-  public Lesson: Lesson;
+  public lesson: Lesson;
   public uri: string;
   token: string;
   lessons: [];
   topic;
   topicSelect: Topic;
+  lessonSelect: Lesson;
 
   constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private restLesson:RestLessonService, private route: Router) { 
     this.uri = CONNECTION.URI;
@@ -46,6 +47,11 @@ export class ProfileTopicComponent implements OnInit {
       }
     },
     error => alert(error.error.message));
+  }
+
+  obtenerData(lesson){
+    this.lessonSelect = lesson;
+    localStorage.setItem('lessonSelect', JSON.stringify(this.lessonSelect));
   }
 
 }
