@@ -36,7 +36,8 @@
                     <!--
                         <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
                     -->
-                    <td style="border-right: none;"><button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button></td>
+                    <td *ngIf="user.rol == 'ALUMNO'" style="border-right: none;"><button id="buttonEdit" type="button" (click)="obtenerData(course)">Continue</button></td>
+                    <td *ngIf="user.rol != 'ALUMNO'" style="border-right: none;"><button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button></td>
                 </tr>            
             </table>
         </div>

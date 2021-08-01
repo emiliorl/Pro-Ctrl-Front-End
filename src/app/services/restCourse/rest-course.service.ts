@@ -115,4 +115,9 @@ export class RestCourseService {
     return this.http.post(this.uri + userId +'/inscriptionCourse/' + courseId, {password : possiblePassword}, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
+
+  verifyProgress(userId, courseId){
+    return this.http.post(this.uri + userId +'/verifyProgress/' + courseId, {}, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
 }

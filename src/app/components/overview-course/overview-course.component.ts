@@ -16,14 +16,16 @@ import { RestCourseService } from 'src/app/services/restCourse/rest-course.servi
 export class OverviewCourseComponent implements OnInit {
 
   public user: User;
-  public course: Course;
+  public course;
   public uri: string;
+  public possiblePass; 
   token: string;
   topics: [];
   topic;
   searchTopic;
   topicSelect: Topic;
   courseSelected: Course;
+  findProgress = false; 
 
   constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
     this.uri = CONNECTION.URI;
@@ -34,6 +36,9 @@ export class OverviewCourseComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.course = this.restCourse.getCourseStorage();
     this.listTopics();
+    if(this.user.rol == 'ALUMNO'){
+      this.verifyProgress();
+    }
   }
 
   obtenerData(topic){
@@ -59,4 +64,30 @@ export class OverviewCourseComponent implements OnInit {
     error => alert(error.error.message));
   }
 
+  suscribeCourse(){
+    if(this.course.type == 'PUBLIC'){
+      this.possiblePass == '';
+    }
+    this.restCourse.incriptionCourse(this.user._id, this.course._id, this.possiblePass).subscribe((res:any)=>{
+      if(res.courseProgressPush){
+        alert(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    (error:any) => alert(error.error.message));
+  }
+
+  verifyProgress(){
+    this.restCourse.verifyProgress(this.user._id, this.course._id).subscribe((res:any)=>{
+      if(res.progressFinded == true){
+        this.findProgress = true;
+      }else if (res.progressFinded == false){
+        this.findProgress = false;
+      }else{
+        alert(res.message);
+      }
+    },
+    (error:any) => alert(error.error.message));
+  }
 }
