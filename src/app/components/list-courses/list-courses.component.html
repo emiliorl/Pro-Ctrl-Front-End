@@ -23,7 +23,7 @@
             <table style="margin: auto;" *ngFor="let course of listCourses | searchCourse:searchCourse">
                 <tr>
                     <td rowspan="2" class="imageTopics">
-                        <img class="imageTopic" *ngIf="course.imageCourse" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(course)">
+                        <img class="imageTopic" *ngIf="course.imageCourse" src="{{uri+'getImageCourse/'+course.imageCourse}}" (click)="obtenerData(course)">
                         <img class="imageTopic" *ngIf="course.imageCourse == '' || course.imageCourse == undefined" id="imageCourse" src="../../../assets/img/8.png" (click)="obtenerData(course)">
                     </td>
                     <td class="titleTopic" (click)="obtenerData(course)">{{course.name}} ({{course.level}} LVL.)</td>

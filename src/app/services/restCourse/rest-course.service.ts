@@ -91,7 +91,7 @@ export class RestCourseService {
     return new Promise((resolve, reject) => {
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();
-      let uri = this.uri+userId+'/uploadImage/'+courseId;
+      let uri = this.uri+'/'+userId+'/uploadImage/'+courseId;
 
       for(var i=0; i<files.length; i++){
         formData.append(name, files[i], files[i].name)

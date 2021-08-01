@@ -16,8 +16,9 @@
         <div id="title">
             <h1>CO<br>UR<br>SE</h1>
         </div>
-        <div style="padding: 1rem; width: 30%; text-align: center;display: flex;">
-            <img class="imageTopic" id="imageTopic" src="../../../assets/img/8.png">
+        <div style="padding: 1rem; width: 30%; text-align: center;display: flex;" >
+            <img class="imageTopic" *ngIf="course.imageCourse" src="{{uri+'getImageCourse/'+course.imageCourse}}" data-toggle="modal" data-target="#imageModal" >
+            <img class="imageTopic" *ngIf="course.imageCourse == undefined" id="imageTopic" src="../../../assets/img/8.png" data-toggle="modal" data-target="#imageModal">
         </div>
         <div class="formCreateTopic" *ngIf="course.administrator == user._id">
                 <form class="formCss" #createCourse="ngForm" (ngSubmit)="onSubmit(createCourse)">
@@ -179,6 +180,30 @@
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='suscribeCourse()'>I'm sure</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Team image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3>Upload your image</h3>
+        <form #formUpload='ngForm'>
+            <label for="inputImage"></label>
+            <input type="file" name="imageTeam" id="inputImage" (change)="fileChange($event)" required>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
         </div>
     </div>
     </div>
