@@ -22,9 +22,14 @@
                 <div style="display: flex;" *ngIf="user == null || user == undefined">
                     <button id="buttonSignUp" data-toggle="modal" data-target="#modalLogin">Sign Up</button>
                 </div>
-                <div style="display: flex;" *ngIf="user != null || user != undefined">
-                    <button id="buttonSignUp">Sign Up</button>
-                    <button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="obtenerCourse(course)">Edit</button>
+                <div style="display: flex;" *ngIf="token != null && user.rol == 'ALUMNO'">
+                    <button id="buttonSignUp" *ngIf="findProgress == false && course.type == 'PUBLIC'" data-toggle="modal" data-target="#inscriptionCourse">Suscribe</button>
+                    <button id="buttonSignUp" *ngIf="findProgress == false && course.type == 'PRIVATE'" data-toggle="modal" data-target="#inscriptionCoursePassword">Suscribe</button>
+                    <button id="buttonSignUp" *ngIf="findProgress == true" routerLink="/myCourses" >View</button>
+                </div>
+                <div style="display: flex;" *ngIf="user._id == course.administrator">
+                    
+                    <button id="buttonEdit" *ngIf="course.administrator == user._id" routerLink="/profileCourse">Edit</button>
                 </div>
             </div>
             <div style="margin-bottom: 5rem">
@@ -59,5 +64,51 @@
                 <h1 style="text-shadow: 5px 5px #0380A8;">No topics to show...</h1>
             </ng-template>
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inscriptionCoursePassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suscribe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3>Suscribe of course</h3>
+        <span>Enter the password to continue</span>
+        <form #courseRemoved='ngForm'>
+            <label for="passwordRemove"></label>
+            <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='suscribeCourse()' [disabled]="!courseRemoved.form.valid">I'm sure</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inscriptionCourse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suscribe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3>Suscribe of course</h3>
+        <span>Are you sure to assign yourself to the course? </span>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='suscribeCourse()'>I'm sure</button>
+        </div>
+    </div>
     </div>
 </div>
