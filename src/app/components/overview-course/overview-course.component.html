@@ -25,7 +25,7 @@
                 <div style="display: flex;" *ngIf="token != null && user.rol == 'ALUMNO'">
                     <button id="buttonSignUp" *ngIf="findProgress == false && course.type == 'PUBLIC'" data-toggle="modal" data-target="#inscriptionCourse">Suscribe</button>
                     <button id="buttonSignUp" *ngIf="findProgress == false && course.type == 'PRIVATE'" data-toggle="modal" data-target="#inscriptionCoursePassword">Suscribe</button>
-                    <button id="buttonSignUp" *ngIf="findProgress == true" routerLink="/myCourses" >View</button>
+                    
                 </div>
                 <div style="display: flex;" *ngIf="user != null || user != undefined">
                     <button id="buttonEdit" *ngIf="course.administrator == user._id" routerLink="/profileCourse">Edit</button>

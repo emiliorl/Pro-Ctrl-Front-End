@@ -32,7 +32,7 @@ export class MyCoursesComponent implements OnInit {
   obtenerData(courseSelect){
     this.courseSelected = courseSelect;
     localStorage.setItem('courseSeclect', JSON.stringify(this.courseSelected));
-    this.route.navigateByUrl('profileCourse');
+    this.route.navigateByUrl('/courseOverview');
   }
 
   coursesPublic(){
