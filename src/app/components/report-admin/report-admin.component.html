@@ -1,1 +1,43 @@
-<p>report-admin works!</p>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div>
+    <div>
+        <h2 id="topicName">{{course.name}}</h2>
+    </div>
+    <div style="display: flex;">
+        <div id="title">
+            <h1>RE<br>PO<br>RT</h1>
+        </div>
+        <div class="formCreateTopic">
+            <div>
+                <table id="tableCourses" style="margin: auto;">
+                    <tr>
+                        <th class="rigthColor" style="cursor: default;">NAME</th>
+                        <th class="rigthColor" style="cursor: default;">USERNAME</th>
+                        <th class="rigthColor" style="cursor: default;">STATUS</th>
+                        <th style="cursor: default;">OPTIONS</th>
+                    </tr>
+                    <tr *ngFor="let progress of progressUsers; let i = index">
+                        <td style="text-transform: uppercase;" class="rigthColor" (click)="obtenerData(topic)" style="cursor: pointer;">{{progress.user.name}}</td>
+                        <td class="rigthColor" style="cursor: default;">{{progress.user.username}}</td>
+                        <td class="rigthColor" style="cursor: default;" *ngIf="percentages[i] == 100">COMPLETED</td>
+                        <td class="rigthColor" style="cursor: default;" *ngIf="percentages[i] < 100 && percentages[i] > 0">IN PROGRESS</td>
+                        <td class="rigthColor" style="cursor: default;" *ngIf="percentages[i] == 0 || percentages[i] == null">BEGINNING</td>
+                        <td (click)="obtenerData(topic)"><button class="editButton">EDIT</button></td>
+                    </tr>   
+                </table>
+            </div>
+            <div>
+                <a type="cancel" id="buttonCancel" class="btn" onclick="history.go(-1)">Back</a>
+                <button type="submit" id="buttonInformation" class="btn">Information</button>
+            </div>
+        </div>
+    </div>
+</div>

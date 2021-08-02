@@ -46,8 +46,6 @@ export class RestProgressService {
     return this.token;
   }
 
-
-
   createProgress(User,Course,Topic,Progress){
     let params = JSON.stringify(Progress); 
     return this.http.post(this.uri+User._id+'/'+Course+'/'+Topic+'/'+Course+'/createProgress', params, this.httpOptionAuth)
@@ -56,6 +54,16 @@ export class RestProgressService {
 
   getProgress(User,Course){
     return this.http.post(this.uri+User._id+'/'+Course._id+'/listProgress',null,this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+  getProgressAdmin(User,Course){
+    return this.http.post(this.uri+User._id+'/'+Course._id+'/listProgressAdmin',null,this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+  getProgressTopic(User,Course,Topic){
+    return this.http.post(this.uri+User._id+'/'+Course._id+'/'+Topic+'/listProgress',null,this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 

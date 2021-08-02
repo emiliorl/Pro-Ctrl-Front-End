@@ -26,7 +26,7 @@ export class ProfileTopicComponent implements OnInit {
   public uri: string;
   token: string;
   lessons: [];
-  lessonsProgress: [];
+  lessonsProgress: [[]];
   topic;
   topicSelect: Topic;
   lessonSelect: Lesson;
@@ -57,9 +57,9 @@ export class ProfileTopicComponent implements OnInit {
   }
 
   listLessonsProgress(){
-    this.restProgress.getProgress(this.user,this.course).subscribe((res:any) => {
-      if(res.progressFind){
-        this.progress = res.progressFind;
+    this.restProgress.getProgressTopic(this.user,this.course,this.topic._id).subscribe((res:any) => {
+      if(res.topicLessons){
+        this.lessonsProgress = res.topicLessons;
       }else{
         alert(res.message)
       }
@@ -76,6 +76,7 @@ export class ProfileTopicComponent implements OnInit {
     this.restProgress.updateProgress(this.user,this.course,this.lessonSelect,grade).subscribe((res:any) => {
       if(res.progressUpdated){
         this.progress = res.progressUpdated;
+        this.listLessonsProgress()
       }else{
         alert(res.message)
       }
