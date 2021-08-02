@@ -36,8 +36,10 @@ export class OverviewCourseComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.course = this.restCourse.getCourseStorage();
     this.listTopics();
-    if(this.user.rol == 'ALUMNO'){
-      this.verifyProgress();
+    if(this.user != null || this.user != undefined){
+      if(this.user.rol == 'ALUMNO'){
+        this.verifyProgress();
+      }
     }
   }
 

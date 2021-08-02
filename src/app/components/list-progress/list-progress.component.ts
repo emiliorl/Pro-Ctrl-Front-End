@@ -37,7 +37,7 @@ export class ListProgressComponent implements OnInit {
   }
 
   getProgress(){
-    this.restProgress.getProgress(this.progress).subscribe((res:any) => {
+    this.restProgress.getProgress(this.user,this.progress).subscribe((res:any) => {
       if(res.progress1){
         this.progress1 = res.progress1;
       }else{

@@ -4,6 +4,7 @@ import { CONNECTION } from 'src/app/services/global';
 import { User } from 'src/app/models/user';
 import { Progress } from 'src/app/models/progress';
 import { Topic } from 'src/app/models/topic';
+import { Lesson } from 'src/app/models/lesson';
 import { Course } from 'src/app/models/course';
 import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 import { RestProgressService } from 'src/app/services/restProgress/rest-progress.service';
@@ -19,6 +20,7 @@ export class ProfileProgressComponent implements OnInit {
     public progress: Progress;
     public topic: Topic;
     public course: Course;
+    public lesson: Lesson;
     public uri: string;
     public possiblePass;
     token: string;
@@ -40,7 +42,7 @@ export class ProfileProgressComponent implements OnInit {
   }
 
   onSubmit(){
-    this.restProgress.updateProgress(this.user, this.progress).subscribe((res:any) => {
+    this.restProgress.updateProgress(this.user, this.course,this.lesson,0).subscribe((res:any) => {
       if(res.progressUpdate){
         localStorage.setItem('progressSelect', JSON.stringify(res.progressUpdate))
         alert(res.message);

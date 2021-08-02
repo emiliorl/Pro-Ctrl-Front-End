@@ -32,7 +32,7 @@
                     <td>{{course.idCourse}}</td>
                     <td>{{course.name}}</td>
                     <td *ngIf="user.rol == 'ALUMNO'">PROGRESS</td>
-                    <td *ngIf="user.rol != 'ALUMNO'">Conteo :(</td>
+                    <td *ngIf="user.rol != 'ALUMNO'">{{course.users.length}}</td>
                     <!--
                         <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
                     -->
