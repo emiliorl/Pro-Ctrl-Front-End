@@ -4,7 +4,7 @@ export class Progress{
         public _id: String,
         public user: String,
         public course: [],
-        public topic: [],
+        public lesson: [],
         public total: Number,
     ){}  
 

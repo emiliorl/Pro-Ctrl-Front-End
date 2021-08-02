@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { CONNECTION } from '../global';
 import { map } from 'rxjs/operators';
+import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -53,8 +54,8 @@ export class RestProgressService {
     .pipe(map(this.extractData));
   }
 
-  getProgress(Topic){
-    return this.http.get(this.uri+Topic+'/listProgress', this.httpOptions)
+  getProgress(User,Course){
+    return this.http.post(this.uri+User._id+'/'+Course._id+'/listProgress',null,this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 
@@ -68,9 +69,8 @@ export class RestProgressService {
     return this.progressSelect;
   }
 
-  updateProgress(User,Progress){
-    let params = JSON.stringify(Progress);
-    return this.http.put(this.uri+'/'+User._id+'/updateTopic/'+Progress._id, params, this.httpOptionAuth)
+  updateProgress(User,Course,Lesson,Grade){
+    return this.http.put(this.uri+User._id+'/'+Course._id+'/'+Lesson._id+'/updateProgress', {grade: Grade}, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
 

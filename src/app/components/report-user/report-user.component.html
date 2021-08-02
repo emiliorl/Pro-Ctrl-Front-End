@@ -9,7 +9,7 @@
 </head>
 <div>
     <div>
-        <h2 id="topicName">CREATE</h2>
+        <h2 id="topicName">{{course.name}}</h2>
     </div>
     <div style="display: flex;">
         <div id="title">
@@ -27,15 +27,15 @@
             <div>
                 <table id="tableCourses" style="margin: auto;">
                     <tr>
-                        <th class="rigthColor">NAME</th>
-                        <th class="rigthColor">GRADE</th>
-                        <th class="rigthColor">STATUS</th>
-                        <th>OPTIONS</th>
+                        <th class="rigthColor" style="cursor: default;">NAME</th>
+                        <th class="rigthColor" style="cursor: default;">GRADE</th>
+                        <th class="rigthColor" style="cursor: default;">STATUS</th>
+                        <th style="cursor: default;">OPTIONS</th>
                     </tr>
                     <tr *ngFor="let topic of topics | searchTopic:searchTopic">
-                        <td style="text-transform: uppercase;" class="rigthColor" (click)="obtenerData(topic)">{{topic.nameTopic}}</td>
-                        <td class="rigthColor" (click)="obtenerData(topic)">{{topic.level}} LVL.</td>
-                        <td class="rigthColor" (click)="obtenerData(topic)">IN PROGRESS</td>
+                        <td style="text-transform: uppercase;" class="rigthColor" (click)="obtenerData(topic)" style="cursor: pointer;">{{topic.nameTopic}}</td>
+                        <td class="rigthColor" style="cursor: default;">{{topic.level}} LVL.</td>
+                        <td class="rigthColor" style="cursor: default;">IN PROGRESS</td>
                         <td (click)="obtenerData(topic)"><button class="editButton">EDIT</button></td>
                     </tr>   
                 </table>
