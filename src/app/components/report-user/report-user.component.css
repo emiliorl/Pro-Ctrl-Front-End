@@ -101,13 +101,12 @@ h2{
 }
 
 .editButton{
-    width: 60%;
+    width: 80%;
     margin: 4%;
-    padding: 0;
+    padding: auto 0.2rem;
     border-radius: 0%;
     border: none;
     font-weight: bold;
-    font-size: 20px;
 }
 
 #buttonCancel{
@@ -124,7 +123,7 @@ h2{
 
 .editButton{
     background-color: #FFBD44;
-    letter-spacing: 0.25rem;
+    letter-spacing: 0.15rem;
     border-width: 0.2rem;
     color: white;
 }

@@ -30,6 +30,7 @@ h1, h2{
     margin: auto;
     display: block;
     border: #A6A6A6 solid 8px;
+    cursor: pointer;
 }
 
 h1{

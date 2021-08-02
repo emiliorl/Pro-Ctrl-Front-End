@@ -19,7 +19,7 @@
         <div id="tableDiv" *ngIf="lessons?.length > 0;else noTopics">
             <table style="margin: auto;" *ngFor="let lesson of lessons">
                 <tr>
-                    <td class="titleTopic" (click)="obtenerData(lesson)">{{lesson.nameLesson}} ({{lesson.gradeLesson}} %)</td>
+                    <td class="titleTopic" (click)="obtenerData(lesson)">{{lesson.nameLesson}}</td>
                 </tr>
                 <tr><button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="editTopic(lesson)">Edit</button></tr>        
             </table>

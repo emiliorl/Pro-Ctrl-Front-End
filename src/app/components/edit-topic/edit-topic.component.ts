@@ -22,11 +22,13 @@ export class EditTopicComponent implements OnInit {
   public possiblePass;
   token: string;
   topicSelect: Topic;
+  public filesToUpload: Array<File>;
 
   constructor(private restUser:RestUserService, private restCourse:RestCourseService, private restTopic:RestTopicService, private route: Router) { 
     this.uri = CONNECTION.URI;
     this.user = this.restUser.getUser();
     this.topic = this.restTopic.getTopicSelect();
+    this.token = this.restUser.getToken();
     this.course = this.restCourse.getCourseStorage();
   }
 
@@ -60,5 +62,21 @@ export class EditTopicComponent implements OnInit {
     (error:any) => alert(error.error.message)
     )
   }
+
+  fileChange(fileInput){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+  }
+
+  uploadImage(){
+    this.restTopic.uploadImage(this.user._id, this.course._id, this.topic._id, [], this.filesToUpload, this.token, 'imageTopic')
+    .then((res:any) => {
+      if(res.topic){
+        this.topic.imageTopic = res.imageTopic;
+        localStorage.setItem('topic', JSON.stringify(this.topic));
+      }else{
+        alert(res.message)
+      }
+    })
+  } 
 
 }

@@ -22,15 +22,13 @@
                         <th class="rigthColor" style="cursor: default;">NAME</th>
                         <th class="rigthColor" style="cursor: default;">USERNAME</th>
                         <th class="rigthColor" style="cursor: default;">STATUS</th>
-                        <th style="cursor: default;">OPTIONS</th>
                     </tr>
                     <tr *ngFor="let progress of progressUsers; let i = index">
-                        <td style="text-transform: uppercase;" class="rigthColor" (click)="obtenerData(topic)" style="cursor: pointer;">{{progress.user.name}}</td>
+                        <td class="rigthColor" (click)="obtenerData(topic)" style="cursor: pointer;text-transform: capitalize;">{{progress.user.name}}</td>
                         <td class="rigthColor" style="cursor: default;">{{progress.user.username}}</td>
                         <td class="rigthColor" style="cursor: default;" *ngIf="percentages[i] == 100">COMPLETED</td>
                         <td class="rigthColor" style="cursor: default;" *ngIf="percentages[i] < 100 && percentages[i] > 0">IN PROGRESS</td>
                         <td class="rigthColor" style="cursor: default;" *ngIf="percentages[i] == 0 || percentages[i] == null">BEGINNING</td>
-                        <td (click)="obtenerData(topic)"><button class="editButton">EDIT</button></td>
                     </tr>   
                 </table>
             </div>

@@ -23,13 +23,18 @@
                             <h3 style="cursor: default;">Content</h3>
                         </tr>
                         <tr *ngFor="let lesson of lessons let i = index" style="cursor: pointer;">
-                            <div style="display: flex; align-items: center;" *ngIf="lessonsProgress[i][1] == null">
-                                <img class="checkIcon" src="../../../assets/img/undone.png">
-                                <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson, i)">{{lesson.nameLesson}}</h4>
+                            <div *ngIf="course.administrator == user._id">
+                                <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson)">{{lesson.nameLesson}}</h4>
                             </div>
-                            <div style="display: flex; align-items: center;" *ngIf="lessonsProgress[i][1] != null">
-                                <img class="checkIcon" src="../../../assets/img/done.png">
-                                <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson,i)">{{lesson.nameLesson}}</h4>
+                            <div *ngIf="course.administrator != user._id">
+                                <div style="display: flex; align-items: center;" *ngIf="lessonsProgress[i][1] == null">
+                                    <img class="checkIcon" src="../../../assets/img/undone.png">
+                                    <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson)">{{lesson.nameLesson}}</h4>
+                                </div>
+                                <div style="display: flex; align-items: center;" *ngIf="lessonsProgress[i][1] != null">
+                                    <img class="checkIcon" src="../../../assets/img/done.png">
+                                    <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson)">{{lesson.nameLesson}}</h4>
+                                </div>
                             </div>
                         </tr>
                     </table>
@@ -59,7 +64,7 @@
         <h5 class="modal-title" id="modalTitle">{{lessonSelect.nameLesson}}</h5>
         <div class="modal-body"id="modalContent">
             <p style="text-align: justify;">{{lessonSelect.content}}</p>
-            <button type="button" id="buttonNext" class="btn" data-dismiss="modal" (click)="setGrade(100)">Next</button>
+            <button *ngIf="course.administrator != user._id" type="button" id="buttonNext" class="btn" data-dismiss="modal" (click)="setGrade(100)">Next</button>
         </div>
       </div>
     </div>

@@ -134,6 +134,16 @@ td{
     color: #ffffff;
     font-weight: bold;
     border: none;
+    margin: 0.1rem;
+    padding: 0.05rem 1rem;
+}
+
+#buttonReport{
+    background-color: #0096C7 !important;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    margin: 0.1rem;
 }
 
 #buttonCreate{

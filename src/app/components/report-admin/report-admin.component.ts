@@ -49,6 +49,7 @@ export class ReportAdminComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.course = this.restCourse.getCourseStorage();
     this.checkTotalProgress();
+    console.log(this.percentages)
   }
 
   checkTotalProgress(){
@@ -58,6 +59,9 @@ export class ReportAdminComponent implements OnInit {
           var numbers = user.grades;
           var sum = numbers.reduce((a, b) => a + b, 0);
           var result = sum/numbers.length;
+          if(isNaN(result)){
+            result = null;
+          }
           this.percentages.push(result);
         })
         this.progressUsers = res.progressFind;

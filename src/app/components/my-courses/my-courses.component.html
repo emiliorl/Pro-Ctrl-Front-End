@@ -30,14 +30,22 @@
                 </thead>
                 <tr *ngFor="let course of listCourses let i = index">
                     <td>{{course.idCourse}}</td>
-                    <td>{{course.name}}</td>
-                    <td *ngIf="user.rol == 'ALUMNO'">PROGRESS</td>
+                    <td style="text-transform: capitalize;">{{course.name}}</td>
+                    <td *ngIf="user.rol == 'ALUMNO' && result[i] == 100">COMPLETED</td>
+                    <td *ngIf="user.rol == 'ALUMNO' && result[i] < 100 && result[i] > 0">IN PROGRESS</td>
+                    <td *ngIf="user.rol == 'ALUMNO' && (result[i] == 0 || result[i] == null)">BEGINNING</td>
                     <td *ngIf="user.rol != 'ALUMNO'">{{course.users.length}}</td>
                     <!--
                         <td><a data-toggle="modal" data-target="#exampleModal">More_Options</a></td>    
                     -->
-                    <td *ngIf="user.rol == 'ALUMNO'" style="border-right: none;"><button id="buttonEdit" type="button" (click)="obtenerData(course)">Continue</button></td>
-                    <td *ngIf="user.rol != 'ALUMNO'" style="border-right: none;"><button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button></td>
+                    <td *ngIf="user.rol == 'ALUMNO'" style="border-right: none;">
+                        <button id="buttonEdit" type="button" (click)="goToCourse(course)">Go to</button>
+                        <button id="buttonReport" type="button" (click)="reportUser(course)">Report</button>
+                    </td>
+                    <td *ngIf="user.rol != 'ALUMNO'" style="border-right: none;">
+                        <button id="buttonEdit" type="button" (click)="obtenerData(course)">Edit</button>
+                        <button id="buttonReport" type="button" (click)="reportAdmin(course)">Report</button>
+                    </td>
                 </tr>            
             </table>
         </div>

@@ -27,7 +27,7 @@
                         <img class="imageTopic" *ngIf="topic.imageTopic" src="{{uri+'getImageTopic/'+topic.imageTopic}}" (click)="obtenerData(topic)">
                         <img class="imageTopic" *ngIf="topic.imageTopic == '' || topic.imageTopic == undefined" id="imageTopic" src="../../../assets/img/8.png" (click)="obtenerData(topic)">
                     </td>
-                    <td class="titleTopic" (click)="obtenerData(topic)">{{topic.nameTopic}} ({{topic.level}} LVL.)</td>
+                    <td class="titleTopic" (click)="obtenerData(topic)" style="text-transform: capitalize;">{{topic.nameTopic}} ({{topic.level}} LVL.)</td>
                 </tr>
                 <tr><button id="buttonEdit" *ngIf="course.administrator == user._id" (click)="editTopic(topic)">Edit</button></tr>     
                 <tr style="border-bottom: 0.1rem dashed #0096C7;padding-bottom: 2%;">

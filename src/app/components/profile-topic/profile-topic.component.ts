@@ -42,7 +42,9 @@ export class ProfileTopicComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.course = this.restCourse.getCourseStorage();
     this.listLessons();
-    this.listLessonsProgress();
+    if(this.user.rol == 'ALUMNO'){
+      this.listLessonsProgress();
+    }
   }
 
   listLessons(){
@@ -67,7 +69,7 @@ export class ProfileTopicComponent implements OnInit {
     error => alert(error.error.message));
   }
 
-  obtenerData(lesson, i){
+  obtenerData(lesson){
     this.lessonSelect = lesson;
     localStorage.setItem('lessonSelect', JSON.stringify(this.lessonSelect));
   }
