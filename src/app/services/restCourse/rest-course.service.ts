@@ -120,4 +120,9 @@ export class RestCourseService {
     return this.http.post(this.uri + userId +'/verifyProgress/' + courseId, {}, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
+
+  updatePassword(userId, courseId, passwordAdmin1, passwordCourse1){
+    return this.http.post(this.uri + userId +'/updatePassword/'+courseId, {passwordAdmin : passwordAdmin1, passwordCourse : passwordCourse1}, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
 }

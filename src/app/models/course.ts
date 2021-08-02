@@ -1,6 +1,7 @@
 export class Course{
     
     constructor(
+        public _id : String,
         public name : String,
         public idCourse : String,
         public description : String, 

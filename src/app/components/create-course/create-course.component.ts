@@ -17,7 +17,7 @@ export class CreateCourseComponent implements OnInit {
   public typesCourses = ['PUBLIC', 'PRIVATE'];
 
   constructor(private resUser : RestUserService, private route : Router, private restCourse : RestCourseService) { 
-    this.course = new Course('','','', null ,'','','','',[],'',[]);
+    this.course = new Course('','','','', null ,'','','','',[],'',[]);
     this.user = this.resUser.getUser();
   }
 
@@ -31,7 +31,7 @@ export class CreateCourseComponent implements OnInit {
     }
     this.restCourse.createCourse(this.user._id, this.course).subscribe((res:any)=>{
       if(res.coursePush){
-        this.course = new Course('','','', null ,'','','', '',[],'',[]);
+        this.course = new Course('','','','', null ,'','','', '',[],'',[]);
         courseSave.reset();
         alert(res.message);
         this.route.navigateByUrl('myCourses');

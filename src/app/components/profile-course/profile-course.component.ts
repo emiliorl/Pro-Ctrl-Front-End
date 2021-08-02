@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Course } from 'src/app/models/course';
 import { CONNECTION } from 'src/app/services/global';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 import { RestUserService } from 'src/app/services/resUser/rest-user.service';
@@ -11,13 +12,15 @@ import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 })
 export class ProfileCourseComponent implements OnInit {
 
-  public course; 
+  public course : Course; 
   public possiblePass; 
   public user; 
   public token; 
   public uri : string; 
   public typesCourses = ['PUBLIC', 'PRIVATE'];
   public filesToUpload: Array<File>;
+  public newPasswordCourse : String;
+  public thePassword : String;
 
   constructor(private restUser : RestUserService, private restCourse : RestCourseService, private route : Router) {
     this.possiblePass = '';
@@ -28,10 +31,17 @@ export class ProfileCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.course = this.restCourse.getCourseStorage();
-    
+    this.thePassword = this.course.password;
+    console.log('Es el tipo de curso '  + this.course.name);
+    if(this.course.type == 'PUBLIC'){
+      this.thePassword = null; 
+    }
   }
 
   onSubmit(coursoUpdated){
+    if(this.course.type == 'PUBLIC'){
+      this.course.password = '';
+    }
     this.restCourse.updateCourse(this.user._id, this.course._id, this.course).subscribe((res:any)=>{
       if(res.courseUpdated){
         alert(res.message);
@@ -76,6 +86,17 @@ export class ProfileCourseComponent implements OnInit {
     }
     this.restCourse.incriptionCourse(this.user._id, this.course._id, this.possiblePass).subscribe((res:any)=>{
       if(res.courseProgressPush){
+        alert(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    (error:any) => alert(error.error.message));
+  }
+
+  updatePassword(){
+    this.restCourse.updatePassword(this.user._id, this.course._id, this.possiblePass, this.newPasswordCourse).subscribe((res : any)=>{
+      if(res.courseUpdated){
         alert(res.message);
       }else{
         alert(res.message);
