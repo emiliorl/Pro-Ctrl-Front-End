@@ -125,4 +125,9 @@ export class RestCourseService {
     return this.http.post(this.uri + userId +'/updatePassword/'+courseId, {passwordAdmin : passwordAdmin1, passwordCourse : passwordCourse1}, this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
+
+  deleteCourseUser(userId, courseId){
+    return this.http.post(this.uri + userId + '/deleteCourseUser/' + courseId, {}, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
 }

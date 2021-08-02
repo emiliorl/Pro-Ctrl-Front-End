@@ -7,6 +7,7 @@ import { Topic } from 'src/app/models/topic';
 import { RestUserService } from 'src/app/services/resUser/rest-user.service';
 import { RestTopicService } from 'src/app/services/restTopic/rest-topic.service';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
+import { allowedNodeEnvironmentFlags } from 'process';
 
 @Component({
   selector: 'app-overview-course',
@@ -91,5 +92,16 @@ export class OverviewCourseComponent implements OnInit {
       }
     },
     (error:any) => alert(error.error.message));
+  }
+
+  deleteCourseUser(){
+      this.restCourse.deleteCourseUser(this.user._id, this.course._id).subscribe((res : any)=>{
+        if(res.userPush){
+          alert(res.message);
+          this.route.navigateByUrl('myCourses');
+        }else{
+          alert(res.message);
+        }
+      })
   }
 }
