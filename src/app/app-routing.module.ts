@@ -21,6 +21,7 @@ import { OverviewCourseComponent } from './components/overview-course/overview-c
 import { CreateLessonComponent } from './components/create-lesson/create-lesson.component';
 import { ListLessonsComponent } from './components/list-lessons/list-lessons.component';
 import { ProfileLessonComponent } from './components/profile-lesson/profile-lesson.component';
+import { ReportAdminComponent } from './components/report-admin/report-admin.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'createLesson', component: CreateLessonComponent},
   {path: 'listLessons', component: ListLessonsComponent},
   {path: 'profileLesson', component: ProfileLessonComponent},
+  {path: 'reportAdmin', component: ReportAdminComponent},
 ];
 
 @NgModule({

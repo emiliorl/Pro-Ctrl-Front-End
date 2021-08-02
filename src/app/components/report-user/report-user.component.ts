@@ -26,7 +26,7 @@ export class ReportUserComponent implements OnInit {
   public uri: string;
   token: string;
   topics: [];
-  progressByTopic: [];
+  progressByTopic: number[] = [];
   topic;
   searchTopic;
   topicSelect: Topic;
@@ -86,14 +86,22 @@ export class ReportUserComponent implements OnInit {
   }
 
   checkProgress(){
-    this.restProgress.getProgress(this.user,this.course).subscribe((res:any) => {
-      if(res.progressFind){
-        this.progress = res.progressFind;
-      }else{
-        alert(res.message)
-      }
-    },
-    error => alert(error.error.message));
+    this.course.topics.map(topic => {
+      this.restProgress.getProgressTopic(this.user,this.course,topic).subscribe((res:any) => {
+        if(res.topicLessons){
+          var numbers = res.topicLessons.map(lessons => {
+            return lessons[1]
+          })
+          var sum = numbers.reduce((a, b) => a + b, 0);
+          var result = sum/numbers.length;
+          this.progressByTopic.push(result);
+        }else{
+          alert(res.message)
+        }
+      },
+      error => alert(error.error.message));
+    })
+    console.log(this.progressByTopic)
   }
 
 }

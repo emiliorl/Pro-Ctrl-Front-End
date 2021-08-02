@@ -23,11 +23,11 @@
                             <h3 style="cursor: default;">Content</h3>
                         </tr>
                         <tr *ngFor="let lesson of lessons let i = index" style="cursor: pointer;">
-                            <div style="display: flex; align-items: center;" *ngIf="progress?.grades[i] == null">
+                            <div style="display: flex; align-items: center;" *ngIf="lessonsProgress[i][1] == null">
                                 <img class="checkIcon" src="../../../assets/img/undone.png">
                                 <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson, i)">{{lesson.nameLesson}}</h4>
                             </div>
-                            <div style="display: flex; align-items: center;" *ngIf="progress?.grades[i] != null">
+                            <div style="display: flex; align-items: center;" *ngIf="lessonsProgress[i][1] != null">
                                 <img class="checkIcon" src="../../../assets/img/done.png">
                                 <h4 data-toggle="modal" data-target="#modalLesson" (click)="obtenerData(lesson,i)">{{lesson.nameLesson}}</h4>
                             </div>
